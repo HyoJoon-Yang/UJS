@@ -1,0 +1,26 @@
+#footer_contain {
+    background-color: #EDF1D6;
+    box-sizing: border-box;
+    padding-top: 20px;
+    color: #609966;
+    font-size: 15px;
+}
+
+#footer_contain a {
+    text-decoration: none;
+    color: #609966;
+}
+
+#footer_UJS_logo {
+    width: 50%;
+    filter: invert(52%) sepia(48%) saturate(333%) hue-rotate(76deg) brightness(96%) contrast(87%);
+}
+
+.footer_icon {
+    width: 30px;
+    margin-right: 5px;
+}
+
+#footer_copyright {
+    font-size: 10px;
+}

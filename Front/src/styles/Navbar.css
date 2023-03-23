@@ -1,0 +1,46 @@
+#navbar_logo {
+    width: 160px;
+}
+
+.me-auto {
+    font-size: 20px;
+}
+
+.navbar_drop {
+    font-size: 20px;
+}
+
+#logout_btn {
+    color: white;
+    background-color: #9DC08B;
+    font-size: 16px;
+    border-style: none;
+    border-radius: 1vw;
+    width: 90px;
+    font-weight: 800;
+    transition: all 0.4s;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
+}
+
+#logout_btn:hover {
+    background-color: #609966;
+    box-shadow: 2px 2px 2px #5e7756;
+}
+
+.logout_modal_btn {
+    background-color: #9DC08B;
+    border: none;
+    font-weight: 600;
+}
+
+.logout_modal_btn:hover {
+    background-color: #609966;
+}
+
+.btn_close {
+    background-color: gray;
+}
+
+.btn_close:hover {
+    background-color: rgb(97, 97, 97);
+}

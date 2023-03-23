@@ -1,0 +1,76 @@
+.login_contain {
+    width: 25vw;
+    margin: 5vw auto;
+}
+
+#LoginFormSubmit {
+    width: 25vw;
+    height: 3vw;
+    background-color: #609966;
+    color: white;
+    border-style: none;
+    border-radius: 2vw;
+    font-size: 1.5vw;
+    font-weight: 800;
+    transition: all 0.4s;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.164);
+}
+
+#LoginFormSubmit:hover {
+    background-color: #40513B;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.164);
+}
+
+#formBasicName, #formBasicEmail, #formBasicPassword {
+    height: 3.5vw;
+    border-radius: 1vw;
+    font-size: 1.2vw;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+#formBasicEmail:focus::placeholder, #formBasicPassword:focus::placeholder {
+    color: transparent;
+}
+
+.login_contain button {
+    width: 25vw;
+    height: 3vw;
+    border-style: none;
+    border-radius: 2vw;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.164);
+    font-size: 1.5vw;
+    font-weight: 800;
+    transition: all 0.4s;
+    color: rgb(112, 112, 112);
+}
+
+.login_contain button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.164);
+    color: rgb(80, 80, 80);
+}
+
+.login_contain #google_logo {
+    width: 2.1vw;
+    margin-right: 0.3vw;
+}
+
+/* 모바일 */
+@media (max-width: 649px) {
+    .login_contain {
+        width: 250px;
+        margin: 100px auto;
+    }
+
+    #formBasicName, #formBasicEmail, #formBasicPassword, #LoginFormSubmit, .login_contain button {
+        height: 50px;
+        width: 100%;
+        border-radius: 20px;
+        font-size: 16px;
+    }
+
+    .login_contain #google_logo {
+        width: 30px;
+        margin-right: 5px;
+    }
+}
