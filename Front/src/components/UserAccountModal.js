@@ -22,22 +22,41 @@ function UserAccountModal() {
                     <Modal.Title><b>사용자 정보 수정</b></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3">
                         <Form.Label>이메일</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control type="email" placeholder="이메일 주소" />
                         <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
-                            변경할 이메일 주소를 적어주세요.
+                            변경할 이메일 주소를 입력해주세요.
                         </Form.Text>
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Group className="mb-3">
                         <Form.Label>비밀번호</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="비밀번호" />
                         <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
-                            변경할 비밀번호를 적어주세요.
+                            변경할 비밀번호를 입력해주세요.
                         </Form.Text>
                     </Form.Group>
-                    <h6>변경된 비밀번호 재확인</h6>
-                    <h6>신장, 체중, 생년월일, 성별 추가 기입</h6>
+                    <Form.Group className="mb-3">
+                        <Form.Label>성별</Form.Label>
+                        <Form.Control type="text" placeholder="남 / 여" />
+                        <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
+                            성별을 입력해주세요.
+                        </Form.Text>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>신장(cm)</Form.Label>
+                        <Form.Control type="text" placeholder="신장(cm)" />
+                        <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
+                            신장을 입력해주세요.
+                        </Form.Text>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>체중(kg)</Form.Label>
+                        <Form.Control type="text" placeholder="체중(kg)" />
+                        <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
+                            체중을 입력해주세요.
+                        </Form.Text>
+                    </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button style={{ border: "none"}} className="btn_close" onClick={handleClose}>
