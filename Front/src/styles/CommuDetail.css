@@ -1,5 +1,5 @@
 #commu-detail-btn-group {
-    width: 240px;
+    width: 310px;
 }
 
 .commu-detail-btn {
@@ -11,11 +11,22 @@
     padding: 5px 15px;
     box-shadow: 2px 2px 2px #5e7756;
     transition: all 0.4s;
+    margin-right: 10px;
+}
+
+.commu-detail-btn:last-child {
+    margin: 0;
+    background-color: rgb(156, 75, 75);
 }
 
 .commu-detail-btn:hover {
     background-color: #609966;
     box-shadow: 3px 4px 3px #5e7756;
+}
+
+.commu-detail-btn:last-child:hover {
+    background-color: rgb(97, 36, 36);
+    box-shadow: 3px 4px 3px #3f1919;
 }
 
 .comment-input-form {
