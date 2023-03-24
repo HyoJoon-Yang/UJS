@@ -22,8 +22,9 @@ function CommuDetail() {
                     </Container>
                     <hr />
                     <Container id="commu-detail-btn-group">
-                        <button className="commu-detail-btn" style={{ margin: "10px" }} onClick={() => { navigate(-1)}}>목록으로</button> 
+                        <button className="commu-detail-btn" onClick={() => { navigate(-1)}}>목록으로</button> 
                         <button className="commu-detail-btn">수정하기</button> 
+                        <button className="commu-detail-btn">삭제하기</button> 
                     </Container>
                 </Container>
                 
