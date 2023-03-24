@@ -8,9 +8,9 @@
     margin: 0 auto;
 }
 
-#file-upload-container h4 {
+#file-upload-container h3 {
     text-align: center; 
-    font-weight: bold; 
+    font-weight: 600; 
     margin-bottom: 10px;
 }
 
