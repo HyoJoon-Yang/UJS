@@ -1,9 +1,11 @@
 #commu-detail-btn-group {
-    width: 310px;
+    width: 330px;
+    height: 70px;
 }
 
 .commu-detail-btn {
     background-color: #9DC08B;
+    float: left;
     border: none;
     border-radius: 10px;
     color: white;

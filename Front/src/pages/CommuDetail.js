@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import PostRemoveModal from "../components/PostRemoveModal.js";
 import { useNavigate } from 'react-router-dom'; 
 import "../styles/CommuDetail.css";
 
@@ -24,7 +25,7 @@ function CommuDetail() {
                     <Container id="commu-detail-btn-group">
                         <button className="commu-detail-btn" onClick={() => { navigate(-1)}}>목록으로</button> 
                         <button className="commu-detail-btn">수정하기</button> 
-                        <button className="commu-detail-btn">삭제하기</button> 
+                        <PostRemoveModal />
                     </Container>
                 </Container>
                 
