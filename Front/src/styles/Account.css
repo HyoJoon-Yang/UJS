@@ -21,3 +21,8 @@
     bottom: -45px;
     left: 180px;
 }
+
+#account-article {
+    margin-top: 80px;
+    border: 1px solid red;
+}
