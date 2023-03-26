@@ -8,7 +8,12 @@
     font-weight: 600;
 }
 
-#comparison-result-container p, h6 {
+#comparison-result-container p {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#comparison-result-container h6 {
     margin-top: 20px;
     text-align: center;
 }
