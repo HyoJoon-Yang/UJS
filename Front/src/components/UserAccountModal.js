@@ -38,7 +38,7 @@ function UserAccountModal() {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>성별</Form.Label>
-                        <Form.Control type="text" placeholder="남 / 여" />
+                        <Form.Control type="text" placeholder="남자 / 여자" />
                         <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
                             성별을 입력해주세요.
                         </Form.Text>
