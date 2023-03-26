@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <Container fluid id="footer_contain">
+    <Container fluid id="footer_contain" style={{ marginTop: "20px" }}>
         <Container>
             <Row>
                 <Col sm={4}>
