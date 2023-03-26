@@ -10,6 +10,7 @@ function ComparisonResult() {
             <p>
                 AI가 분석을 끝마쳤습니다. <br /> 결과를 확인해주세요!
             </p>
+            <h6>자세 일치율: ??.?%</h6>
             <Container id="comparison-result-mov">
                 이 부분에 분석 영상이 출력됩니다.
             </Container>
