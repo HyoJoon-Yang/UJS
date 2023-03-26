@@ -13,6 +13,11 @@
     text-align: center;
 }
 
+#comparison-result-container h6 {
+    margin-top: 20px;
+    text-align: center;
+}
+
 #comparison-result-mov {
     border: 1px solid blue;
     width: 350px;
@@ -49,6 +54,7 @@
     border: none;
     background-color: white;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 /* 모바일 */
