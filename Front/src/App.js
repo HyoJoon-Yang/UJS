@@ -33,7 +33,7 @@ function App() {
           <Route path="/commu" element={<Commu />} />
           <Route path="/post-form" element={<CommuPostForm />} />
           {/* <Route path="/commu/commu-detail/:id" element={<CommuDetail />} /> */}
-          <Route path="/commu-detail" element={<CommuDetail />} />
+          <Route path="/commu-detail/:id" element={<CommuDetail />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/faq" element={<Faq />} />
         </Routes>
