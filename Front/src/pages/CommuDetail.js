@@ -10,6 +10,8 @@ import { useNavigate,useParams } from 'react-router-dom';
 import "../styles/CommuDetail.css";
 import {useGetOneData} from "./UseGetData.js"
 
+import { Link } from "react-router-dom";
+
 function CommuDetail(props) {
     let navigate = useNavigate();
     const {id : postId} = useParams();
@@ -32,7 +34,7 @@ function CommuDetail(props) {
                     <hr />
                     <Container id="commu-detail-btn-group">
                         <button className="commu-detail-btn" onClick={() => { navigate(-1)}}>목록으로</button> 
-                        <button className="commu-detail-btn">수정하기</button> 
+                        <button className="commu-detail-btn"> <Link to={`/update-form/${text.id}`}>수정하기</Link></button> 
                         <PostRemoveModal />
                     </Container>
                 </Container>
