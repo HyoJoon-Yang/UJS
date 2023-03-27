@@ -6,6 +6,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import SubmitBtn from "../components/SubmitBtn.js";    
+
 const handleSubmit = async (event) => {
     var s_board  = document.getElementById("select_value");
     var value = (s_board.options[s_board.selectedIndex].value);
@@ -25,7 +26,7 @@ const handleSubmit = async (event) => {
     }
     event.preventDefault();
     
-    if (value !== "게시판 선택") {
+    if (board_type !== "") {
         const response = await axios.post("http://127.0.0.1:8000/api/v1/commu/posts/", {title: event.target.title.value,
                                                                                         content: event.target.content.value,
                                                                                         kind:board_type,
@@ -81,7 +82,6 @@ function CommuPostForm() {
                 </Button>
                 </div>
                  <SubmitBtn />
-                {select_board}
 
 
                 
@@ -90,10 +90,4 @@ function CommuPostForm() {
         </Layout>
     );
 }
-function select_board() {
-    var s_board  = document.getElementById("select_value");
-    var value = (s_board.options[s_board.selectedIndex].value);
-    alert("value = "+value);
-    return value
-  }
 export default CommuPostForm;
