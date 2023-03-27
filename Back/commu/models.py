@@ -12,11 +12,12 @@ class Post(models.Model):
     create_at = models.DateField(auto_now_add=True)
     update_at = models.DateField(auto_now=True)
 
-    owner = models.ForeignKey(
-        "users.User",
-        on_delete=models.CASCADE,
-        related_name="posts",
-    )
+    # owner = models.ForeignKey(
+    #     "users.User",
+    #     on_delete=models.CASCADE,
+    #     related_name="posts",
+    # )
+    
 
     def __str__(self):
         return f"{self.title}"
@@ -28,11 +29,11 @@ class Notice(models.Model):
     create_at = models.DateField(auto_now_add=True)
     update_at = models.DateField(auto_now=True)
     
-    owner = models.ForeignKey(
-        "users.User",
-        on_delete=models.CASCADE,
-        related_name="notices",
-    )
+    # owner = models.ForeignKey(
+    #     "users.User",
+    #     on_delete=models.CASCADE,
+    #     related_name="notices",
+    # )
 
     def __str__(self):
         return f"{self.title}"
