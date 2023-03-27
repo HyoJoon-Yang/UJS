@@ -18,7 +18,7 @@ class PostListSerializer(serializers.ModelSerializer):
             "id",
             "title",
             "content",
-            "owner",
+       #     "owner",
             "kind",
         )
 
