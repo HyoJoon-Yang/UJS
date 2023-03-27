@@ -3,6 +3,7 @@
     height: 30vh;
     background-color: #9DC08B;
     position: relative;
+    margin-bottom: 90px;
 }
 
 #profile-img {
@@ -23,7 +24,6 @@
 }
 
 #account-article {
-    margin-top: 90px;
     border: 1px solid red;
     margin-bottom: 40px;
 }
