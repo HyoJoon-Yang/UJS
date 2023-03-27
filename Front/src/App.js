@@ -15,6 +15,7 @@ import Notice from "./pages/Notice.js";
 import Faq from "./pages/Faq.js";
 import CommuDetail from "./pages/CommuDetail.js";
 import CommuPostForm from "./pages/CommuPostForm.js";
+import CommuUpdateForm from "./pages/CommuUpdateForm.js";
 import "./styles/App.css";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/post-form" element={<CommuPostForm />} />
           {/* <Route path="/commu/commu-detail/:id" element={<CommuDetail />} /> */}
           <Route path="/commu-detail/:id" element={<CommuDetail />} />
+          <Route path="/update-form/:id" element={<CommuUpdateForm />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/faq" element={<Faq />} />
         </Routes>
