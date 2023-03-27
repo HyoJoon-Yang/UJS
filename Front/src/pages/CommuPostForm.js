@@ -1,7 +1,5 @@
 import Layout from "../components/layout/Layout.js";
 import { Container } from "react-bootstrap";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
@@ -11,16 +9,13 @@ function CommuPostForm() {
         <Layout>
             <Container style={{minHeight: '100vh'}}>
                 <InputGroup className="mb-3" size="md" style={{ marginTop: "30px" }}>
-                    <DropdownButton
-                    variant="outline-secondary"
-                    title="게시판"
-                    id="input-group-dropdown-1"
-                    >
-                        <Dropdown.Item href="#">자유게시판</Dropdown.Item>
-                        <Dropdown.Item href="#">공지사항</Dropdown.Item>
-                        <Dropdown.Item href="#">건의사항</Dropdown.Item>
-                    </DropdownButton>
-                    <Form.Control placeholder="게시판 선택 후 제목 입력" />
+                    <Form.Select aria-label="Default select example">
+                        <option>게시판 선택</option>
+                        <option value="1">자유게시판</option>
+                        <option value="2">공지사항</option>
+                        <option value="3">건의사항</option>
+                    </Form.Select>
+                    <Form.Control style={{ width: "70%" }} placeholder="게시판 선택 후 제목 입력" />
                 </InputGroup>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>글 내용</Form.Label>
