@@ -8,11 +8,12 @@ class Analysis(models.Model):
         related_name="analyses",
     )
 
-    video = models.OneToOneField(
-        "medias.Video",
+    video = models.FileField()
+
+    info = models.ForeignKey(
+        "users.UserInfo",
         null=True,
+        blank=True,
         on_delete=models.SET_NULL,
-        related_name="analyses",
     )
 
-    

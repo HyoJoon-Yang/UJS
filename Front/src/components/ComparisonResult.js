@@ -1,8 +1,33 @@
 import { Container } from "react-bootstrap";
 import { useState } from "react";
 import "../styles/ComparisonResult.css";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+import { EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, LineShareButton, LineIcon } from "react-share";
 
 function ComparisonResult() {
+    const currentUrl = window.location.href;
+    const popover = (
+        <Popover id="popover-basic">
+          {/* <Popover.Header as="h3">Popover right</Popover.Header> */}
+          <Popover.Body>
+            자유게시판에 자랑하기
+            <hr />
+            <Container className="d-flex justify-content-between" style={{ width: "150px"}}>
+                <EmailShareButton url={currentUrl}>
+                    <EmailIcon size={30} round={true}></EmailIcon>
+                </EmailShareButton>
+                <FacebookShareButton url={currentUrl}>
+                    <FacebookIcon size={30} round={true}></FacebookIcon>
+                </FacebookShareButton>
+                <LineShareButton url={currentUrl}>
+                    <LineIcon size={30} round={true}></LineIcon>
+                </LineShareButton>
+            </Container>
+          </Popover.Body>
+        </Popover>
+      );
+
     const [ isOn, setIsOn ] = useState(true);
     return (
         <Container fluid id="comparison-result-container">
@@ -25,9 +50,11 @@ function ComparisonResult() {
                 <button className="result-btn">
                     <img src="img/download.svg" alt="download btn" /> 결과 저장하기
                 </button>
-                <button className="result-btn" style={{ marginLeft: "10px"}}>
-                    <img src="img/share.svg" alt="share btn" /> 결과 공유하기
-                </button>
+                <OverlayTrigger trigger="click" placement="left" overlay={popover}>
+                    <button className="result-btn" style={{ marginLeft: "10px"}}>
+                        <img src="img/share.svg" alt="share btn" /> 결과 공유하기
+                    </button>
+                </OverlayTrigger>
             </Container>
 
         </Container>

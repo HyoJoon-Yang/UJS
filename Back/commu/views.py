@@ -5,7 +5,6 @@ from rest_framework.exceptions import NotFound, NotAuthenticated, ParseError, Pe
 from rest_framework.status import HTTP_204_NO_CONTENT
 
 from .models import Post, Notice
-from categories.models import Category
 from .serializers import PostListSerializer, PostDetailSerializer, NoticeListSerializer
 
 
@@ -20,24 +19,15 @@ class Posts(APIView):
         if request.user.is_authenticated:
             serializer = PostDetailSerializer(data=request.data)
             if serializer.is_valid():
-                # category_pk = request.data.get("category")
-                # if not category_pk:
-                #     raise ParseError("카테고리를 입력해주세요")
-                # try:
-                #     category = Category.objects.get(pk=category_pk)
-                #     if category.kind == Category.CategoryKindChoices.NOTICES:
-                #         raise ParseError("카테고리 타입을 확인해 주세요")
-                # except Category.DoesNotExist:
-                #     raise ParseError("카테고리가 존재하지 않습니다")
                 posts = serializer.save(
                     owner=request.user,
-                    # category=category,
                 )
                 return Response(PostDetailSerializer(posts).data)
             else:
                 return Response(serializer.errors)
         else:
             raise NotAuthenticated
+    
     
 # 게시글 내용
 class PostDetail(APIView):
@@ -60,16 +50,6 @@ class PostDetail(APIView):
             raise PermissionDenied
         serializer = PostDetailSerializer(post, data=request.data, partial=True)
         if serializer.is_valid():
-            # category_pk = request.data.get("category")
-            # if category_pk:
-            #     try:
-            #         category = Category.objects.get(pk=category_pk)
-            #         if category.kind == Category.CategoryKindChoices.NOTICES:
-            #             raise ParseError("카테고리 타입을 확인해 주세요")
-            #     except Category.DoesNotExist:
-            #         raise ParseError("카테고리가 존재하지 않습니다")
-            #     post = serializer.save(category=category)
-            # else:
             post = serializer.save()
             return Response(PostDetailSerializer(post).data)
         else:

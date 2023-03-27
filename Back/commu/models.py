@@ -33,14 +33,6 @@ class Notice(models.Model):
         on_delete=models.CASCADE,
         related_name="notices",
     )
-    
-    category = models.ForeignKey(
-        "categories.Category",
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        related_name="notices",
-    )
 
     def __str__(self):
         return f"{self.title}"

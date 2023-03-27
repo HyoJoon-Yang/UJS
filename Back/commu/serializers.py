@@ -1,12 +1,10 @@
 from rest_framework import serializers
 from .models import Post, Notice
 from users.serializers import TinyUserSerializer
-from categories.serializers import CategorySerializer
 
 
 class PostDetailSerializer(serializers.ModelSerializer):
     owner = TinyUserSerializer(read_only=True)
-    # category = CategorySerializer(read_only=True)
 
     class Meta:
         model = Post
