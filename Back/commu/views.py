@@ -16,17 +16,14 @@ class Posts(APIView):
         return Response(serializer.data)
     
     def post(self, request):
-        if request.user.is_authenticated:
-            serializer = PostDetailSerializer(data=request.data)
-            if serializer.is_valid():
-                posts = serializer.save(
-                    owner=request.user,
-                )
-                return Response(PostDetailSerializer(posts).data)
-            else:
-                return Response(serializer.errors)
+        serializer = PostDetailSerializer(data=request.data)
+        if serializer.is_valid():
+            posts = serializer.save(
+            #    owner=request.user,
+            )
+            return Response(PostDetailSerializer(posts).data)
         else:
-            raise NotAuthenticated
+            return Response(serializer.errors)
     
     
 # 게시글 내용
@@ -44,10 +41,6 @@ class PostDetail(APIView):
     
     def put(self, request, pk):
         post = self.get_object(pk)
-        if not request.user.is_authenticated:
-            raise NotAuthenticated
-        if post.owner != request.user:
-            raise PermissionDenied
         serializer = PostDetailSerializer(post, data=request.data, partial=True)
         if serializer.is_valid():
             post = serializer.save()
@@ -58,10 +51,10 @@ class PostDetail(APIView):
     
     def delete(self, request, pk):
         post = self.get_object(pk)
-        if request.user.is_authenticated:
-            raise NotAuthenticated
-        if post.owner != request.user:
-            raise PermissionDenied
+        # if request.user.is_authenticated:
+        #     raise NotAuthenticated
+        # if post.owner != request.user:
+        #     raise PermissionDenied
         post.delete()
         return Response(status=HTTP_204_NO_CONTENT)
 
