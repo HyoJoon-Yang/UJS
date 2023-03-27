@@ -3,14 +3,36 @@ import Button from 'react-bootstrap/Button';
 import Banner from "../components/Banner.js";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import BoardList from "../components/BoardList.js";
-
+import {useGetData} from "./UseGetData.js"
+import Table from 'react-bootstrap/Table';
+import "../styles/BoardList.css";
 function Commu() {
+    const text = useGetData("http://127.0.0.1:8000/api/v1/commu/posts/")
     return (
         <Layout>
             <Container style={{minHeight: '100vh'}}>
                 <Banner title="자유게시판" />
-                <BoardList />
+                <Table id="board-list-table" striped bordered hover size="sm">
+                    <tbody>
+                            <>
+                        {text.filter((e) => {
+                                    return e.kind === "posts"; // posts(자유게시판)인 경우만
+                                    }).map((e) => (
+                            
+                                <tr>
+                                    
+                                            <td onClick="http://localhost:3000/commu" className="first-td">{e.id}</td>
+                                            <td><Link to={`/commu-detail/${e.id}`}>{e.title}</Link></td>  
+                                            <td className="last-td">{e.create_at}</td>
+                            
+
+                                        
+                                </tr>
+                        ))}
+                        </>
+               
+            </tbody>
+            </Table>
                 <Link to="/post-form">
                     <Button
                         style={{ backgroundColor: "#9DC08B", border: "none", borderRadius: "10px",
