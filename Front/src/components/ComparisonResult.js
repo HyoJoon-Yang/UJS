@@ -50,7 +50,7 @@ function ComparisonResult() {
                 <button className="result-btn">
                     <img src="img/download.svg" alt="download btn" /> 결과 저장하기
                 </button>
-                <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+                <OverlayTrigger trigger="click" placement="left" overlay={popover}>
                     <button className="result-btn" style={{ marginLeft: "10px"}}>
                         <img src="img/share.svg" alt="share btn" /> 결과 공유하기
                     </button>
