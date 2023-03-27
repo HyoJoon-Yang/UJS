@@ -19,7 +19,7 @@ import "./styles/App.css";
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <AnimatePresence>
         <Routes>
           <Route path="/" element={<Main />} />
