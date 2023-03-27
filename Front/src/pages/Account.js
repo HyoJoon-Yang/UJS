@@ -17,7 +17,10 @@ function Account() {
                             <img src="img/Ranking.svg" alt="ranking svg" style={{ width: "250px" }} />
                             <h5>현재 실버3입니다!</h5>
                         </Col>
-                        <Col sm={7}>그래프 표시 구역</Col>
+                        <Col sm={7}>
+                            그래프 출력 공간
+                            
+                        </Col>
                     </Row>
                 </Container>
             </Container>
