@@ -6,20 +6,28 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import PostRemoveModal from "../components/PostRemoveModal.js";
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate,useParams } from 'react-router-dom'; 
 import "../styles/CommuDetail.css";
+import {useGetOneData} from "./UseGetData.js"
 
-function CommuDetail() {
+function CommuDetail(props) {
     let navigate = useNavigate();
+    const {id : postId} = useParams();
+    const text = useGetOneData(`http://127.0.0.1:8000/api/v1/commu/posts/${postId}/`)
+    
     return (
         <Layout>
             <Container style={{ paddingTop: "20px" }}>
                 <Container fluid>
-                    <h3>글 제목</h3>  
-                    <h6>작성자 아이디 | 작성일</h6>
+
+
+                
+                    <h3>{text.title}</h3>  
+                    {text.content}
+                    <h6>작성자 아이디 | {text.create_at}</h6>
                     <hr />
                     <Container style={{ height: "550px", fontWeight: "500", fontSize: "20px" }}>
-                        글 내용입니다.
+                        {text.content}
                     </Container>
                     <hr />
                     <Container id="commu-detail-btn-group">
