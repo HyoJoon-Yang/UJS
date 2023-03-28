@@ -17,10 +17,12 @@ import CommuDetail from "./pages/CommuDetail";
 import Notice from "./pages/Notice";
 import Faq from "./pages/Faq";
 import PrivateRoute from "./PrivateRouter";
+import ScrollTop from "./components/ScrollTop";
 
 export default function App() {
   return (
     <Router>
+      <ScrollTop />
       <AnimatePresence>
         <Routes>
           {/* <Route element={<PrivateRoute authentication={true} />}> */}
