@@ -30,7 +30,7 @@ export const options = {
       position: 'top' as const,
     },
     title: {
-      display: true,
+      display: false,
       text: '올해의 성장',
     },
   },
