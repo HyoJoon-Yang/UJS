@@ -31,7 +31,9 @@ function UserList() {
                     <UserListMoreBtn />
                     <hr />
                 </Container>
-                <Link to="/account" style={{ width: "100px", position: "absolute", bottom: "20px", right: "10px" }}>
+                <Link to="/account" 
+                style={{ width: "100px", position: "absolute", bottom: "0", right: "10px" }}
+                >
                     <ChevronLeftIcon boxSize={20} style={{ float:"left" }} />
                     <h6><b>뒤로가기</b></h6>
                 </Link>
