@@ -1,0 +1,22 @@
+#user-rank-box h2 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+#user-rank-table {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 모바일 */
+@media (max-width: 649px) {
+    #user-rank-box h2 {
+        margin-top: 10px;
+    }
+
+    #user-rank-table {
+        width: 90%;
+    }
+}
