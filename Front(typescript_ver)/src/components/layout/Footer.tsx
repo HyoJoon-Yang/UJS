@@ -28,11 +28,13 @@ export default function Footer() {
           </Col>
           <Col sm={5}></Col>
           <Col sm={3}>
-            <img
-              className="footer_icon"
-              alt="github_logo"
-              src="img/github.png"
-            />
+            <a href="https://github.com/HyoJoon-Yang/UJS" target={ "_blank" }>
+              <img
+                className="footer_icon"
+                alt="github_logo"
+                src="img/github.png"
+              />
+            </a>
             <img className="footer_icon" alt="email" src="img/email.png" />
             <img
               className="footer_icon"
