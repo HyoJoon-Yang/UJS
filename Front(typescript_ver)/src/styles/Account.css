@@ -24,14 +24,25 @@
 }
 
 #account-article {
-    border: 1px solid red;
     margin-bottom: 40px;
 }
 
-#user-ranking {
+#user-ranking, #user-chart {
     text-align: center;
 }
 
-#user-ranking h3 {
+#user-ranking h3, #user-chart h3 {
     font-weight: bold;
+}
+
+#user-ranking img {
+    width: 300px;
+    margin-top: 20px;
+}
+
+/* 모바일 */
+@media (max-width: 649px) {
+    #user-chart {
+        margin-top: 20px;
+    }
 }
