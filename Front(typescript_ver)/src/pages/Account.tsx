@@ -17,7 +17,7 @@ export default function Account() {
                         <Col sm={5} id="user-ranking">
                             <h3>User name님의 랭킹</h3>
                             <img src="img/Ranking.svg" alt="ranking svg" />
-                            <h5>현재 실버3입니다!</h5>
+                            <h5>현재 <b>실버3</b>입니다!</h5>
                         </Col>
                         <Col sm={7} id="user-chart">
                             <h3>User name님의 성장 그래프</h3>
