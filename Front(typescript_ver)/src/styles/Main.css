@@ -1,0 +1,37 @@
+@media (min-width: 650px) {
+    #main_contain {
+        min-height: 100vh;
+    }
+
+    #cardsContain {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+}
+
+/* 모바일 */
+@media (max-width: 649px) {
+    #cardsContain {
+        margin-top: 30px;
+    }
+
+    #main_contain {
+        min-height: 800px;
+    }
+
+    .carousel-inner, .carousel-item, .carousel-img {
+        height: 180px;
+    }
+
+    .card-img-bottom {
+        display: none;
+    }
+
+    .card{
+        margin-bottom: 30px;
+        width: 90vw;
+    }
+    
+}
