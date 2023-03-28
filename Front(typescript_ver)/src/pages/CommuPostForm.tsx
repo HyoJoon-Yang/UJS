@@ -9,7 +9,7 @@ export default function CommuPostForm() {
   return (
     <Layout>
       <Container style={{ minHeight: "100vh" }}>
-        <InputGroup className="mb-3" size="sm" style={{ marginTop: "30px" }}>
+        <InputGroup className="mb-3" size="sm" style={{ marginTop: "30px", height: "50px" }}>
           <Form.Select aria-label="Default select example">
             <option>게시판 선택</option>
             <option value="1">자유게시판</option>
