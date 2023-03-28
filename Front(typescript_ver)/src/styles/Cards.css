@@ -1,0 +1,21 @@
+.card {
+    width: 300px;
+    float: left;
+    box-shadow: 4px 4px 2px #6099665d;
+}
+
+.card-img-bottom {
+    height: 150px;
+    margin-top: 25px;
+}
+
+#main-card-btn {
+    background-color: #609966;
+    border: none;
+    box-shadow: 2px 2px 2px #60996677;
+}
+
+#main-card-btn:hover {
+    background-color: #40513B;
+}
+

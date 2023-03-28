@@ -1,0 +1,70 @@
+#commu-detail-btn-group {
+    width: 330px;
+    height: 70px;
+}
+
+.commu-detail-btn {
+    background-color: #9DC08B;
+    float: left;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    padding: 5px 15px;
+    box-shadow: 2px 2px 2px #5e7756;
+    transition: all 0.4s;
+    margin-right: 10px;
+}
+
+.commu-detail-btn:last-child {
+    margin: 0;
+    background-color: rgb(156, 75, 75);
+}
+
+.commu-detail-btn:hover {
+    background-color: #609966;
+    box-shadow: 3px 4px 3px #5e7756;
+}
+
+.commu-detail-btn:last-child:hover {
+    background-color: rgb(97, 36, 36);
+    box-shadow: 3px 4px 3px #3f1919;
+}
+
+.comment-input-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 100%;
+}
+
+.comment-user-profile {
+    width: 80px;
+    text-align: center;
+}
+
+.comment-user-profile p {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.comment-user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 10px auto;
+    background: url("../../public/img/user_default_img.png") no-repeat center;
+    background-size: cover;
+}
+
+.comment-output {
+    float: left;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+/* 모바일 */
+@media (max-width: 649px) {
+    .comment-output {
+        margin-left: 30px;
+    }
+}
