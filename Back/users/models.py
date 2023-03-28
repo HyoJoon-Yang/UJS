@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import MinValueValidator
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
 
@@ -34,6 +35,7 @@ class CustomUserManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError(_('Superuser must have is_superuser=True.'))
         return self.create_user(email, password, **extra_fields)
+
 
 class User(AbstractUser):
     # 성별 class
@@ -80,8 +82,8 @@ class UserInfo(models.Model):                              # 사용자 정보
         related_name="userinfo",
     )
 
-    score = models.IntegerField(null=True, blank=True)
-    rank = models.PositiveIntegerField(null=True, blank=True)       # 회원등급
+    rank = models.PositiveIntegerField(null=True)
+    score = models.FloatField(null=True, validators=[MinValueValidator(0.0)])
 
     def __str__(self):
         return f"{self.user.name}"
