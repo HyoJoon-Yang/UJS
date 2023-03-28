@@ -4,9 +4,7 @@ import { Container } from "react-bootstrap";
 import ComparisonUpload from "src/components/ComparisonUpload";
 import ComparisonResult from "src/components/ComparisonResult";
 import React from "react";
-
-
-// import Loading from "../components/Loading.js";
+// import Loading from "src/components/Loading.tsx";
 
 export default function Comparison() {
   return (
