@@ -23,7 +23,10 @@ export default function ComparisonUpload() {
     <Container id="file-upload-container">
       <div>
         <h3>영상을 업로드해주세요.</h3>
-        <input type="file" onChange={fileUpload} />
+        <div className="file-upload-box">
+          <label htmlFor="file">영상 업로드</label> 
+          <input type="file" id="file" onChange={fileUpload} />
+        </div>
         {file.video && (
           <video
             src={file.url}

@@ -32,3 +32,35 @@
     box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
     background-color: #548559;
 }
+
+.file-upload-box {
+    margin-top: 20px;
+}
+
+.file-upload-box label {
+    display: inline-block;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: #609966;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.file-upload-box:hover label {
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
+    background-color: #548559;
+}
+
+.file-upload-box input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
