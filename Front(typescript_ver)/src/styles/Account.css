@@ -35,6 +35,10 @@
     font-weight: bold;
 }
 
+#user-ranking h5 {
+    color: black;
+}
+
 #user-ranking img {
     width: 300px;
     transition: all 0.3s;
