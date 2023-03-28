@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AnimatePresence } from "framer-motion";
-
+import "../src/styles/App.css";
 import React from "react";
 import Main from "./pages/Main";
 import LogIn from "./pages/LogIn";
