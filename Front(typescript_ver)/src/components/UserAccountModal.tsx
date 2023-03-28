@@ -46,21 +46,22 @@ export default function UserAccountModal() {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>성별</Form.Label>
-            <Form.Control type="text" placeholder="남자 / 여자" />
+            <Form.Check type="radio" name="radio" label="남" />
+            <Form.Check type="radio" name="radio" label="여" />
             <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
-              성별을 입력해주세요.
+              성별을 선택해주세요.
             </Form.Text>
           </Form.Group>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" style={{ float: "left", marginRight: "30px" }}>
             <Form.Label>신장(cm)</Form.Label>
-            <Form.Control type="text" placeholder="신장(cm)" />
+            <Form.Control type="text" placeholder="신장(cm)" style={{ width: "150px" }} />
             <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
               신장을 입력해주세요.
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>체중(kg)</Form.Label>
-            <Form.Control type="text" placeholder="체중(kg)" />
+            <Form.Control type="text" placeholder="체중(kg)" style={{ width: "150px"}} />
             <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
               체중을 입력해주세요.
             </Form.Text>

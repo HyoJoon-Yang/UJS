@@ -35,9 +35,17 @@
     font-weight: bold;
 }
 
+#user-ranking h5 {
+    color: black;
+}
+
 #user-ranking img {
     width: 300px;
-    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+#user-ranking img:hover {
+    width: 350px;
 }
 
 /* 모바일 */
