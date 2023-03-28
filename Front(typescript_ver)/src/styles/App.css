@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html, body {
+    /* font-family: 'GangwonEduPowerExtraBoldA'; */
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-weight: 700;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+

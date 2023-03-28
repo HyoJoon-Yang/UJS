@@ -1,0 +1,64 @@
+.first_contain {
+    width: 25vw;
+    margin: 10vw auto;
+}
+
+#UJS_logo {
+    width: 25vw;
+    margin-bottom: 3vw;
+}
+
+.first_contain button {
+    cursor: pointer;
+    width: 25vw;
+    height: 3vw;
+    margin-bottom: 1vw;
+    background-color: #609966;
+    color: white;
+    border-style: none;
+    border-radius: 2vw;
+    font-size: 1.5vw;
+    font-weight: 800;
+    transition: all 0.4s;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.164);
+}
+
+.first_contain button:hover {
+    background-color: #40513B;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.164);
+}
+
+.first_contain p {
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+.first_contain p a {
+    color: #609966;
+}
+
+/* 모바일 */
+@media (max-width: 649px) {
+    .first_contain {
+        width: 250px;
+        margin: 100px auto;
+    }
+
+    .first_contain button {
+        width: 100%;
+        height: 50px;
+        width: 100%;
+        border-radius: 20px;
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .first_contain p {
+        font-size: 15px;
+    }
+
+    #UJS_logo {
+        width: 260px;
+    }
+}
