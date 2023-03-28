@@ -23,7 +23,7 @@ export default function App() {
     <Router>
       <AnimatePresence>
         <Routes>
-          <Route element={<PrivateRoute authentication={true} />}>
+          {/* <Route element={<PrivateRoute authentication={true} />}> */}
             <Route path="/" element={<Main />} />
             <Route path="/comparison" element={<Comparison />} />
             <Route path="/account" element={<Account />} />
@@ -36,7 +36,7 @@ export default function App() {
             <Route path="/commu-detail" element={<CommuDetail />} />
             <Route path="/notice" element={<Notice />} />
             <Route path="/faq" element={<Faq />} />
-          </Route>
+          {/* </Route> */}
           <Route element={<PrivateRoute authentication={false} />}>
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
