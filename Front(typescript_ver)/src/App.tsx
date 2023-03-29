@@ -16,7 +16,6 @@ import CommuPostForm from "./pages/CommuPostForm";
 import CommuDetail from "./pages/CommuDetail";
 import Notice from "./pages/Notice";
 import Faq from "./pages/Faq";
-import PrivateRoute from "./PrivateRouter";
 import ScrollTop from "./components/ScrollTop";
 
 export default function App() {
@@ -25,28 +24,21 @@ export default function App() {
       <ScrollTop />
       <AnimatePresence>
         <Routes>
-          {/* <Route element={<PrivateRoute authentication={true} />}> */}
-            <Route path="/" element={<Main />} />
-            <Route path="/comparison" element={<Comparison />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/user-list" element={<UserList />} />
-            <Route path="/user-rank" element={<UserRank />} />
-            <Route path="/first" element={<First />} />
-            <Route path="/commu" element={<Commu />} />
-            <Route path="/post-form" element={<CommuPostForm />} />
-
-            <Route path="/commu-detail" element={<CommuDetail />} />
-            <Route path="/notice" element={<Notice />} />
-            <Route path="/faq" element={<Faq />} />
-          {/* </Route> */}
-          <Route element={<PrivateRoute authentication={false} />}>
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/signup" element={<SignUp />} />
-          </Route>
+          <Route path="/" element={<Main />} />
+          <Route path="/comparison" element={<Comparison />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/user-list" element={<UserList />} />
+          <Route path="/user-rank" element={<UserRank />} />
+          <Route path="/first" element={<First />} />
+          <Route path="/commu" element={<Commu />} />
+          <Route path="/post-form" element={<CommuPostForm />} />
+          <Route path="/commu-detail" element={<CommuDetail />} />
+          <Route path="/notice" element={<Notice />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </AnimatePresence>
     </Router>
   );
 }
-
-// {/* <Route path="/commu/commu-detail/:id" element={<CommuDetail />} /> */}

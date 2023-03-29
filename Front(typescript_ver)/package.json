@@ -23,6 +23,7 @@
     "framer-motion": "^10.9.1",
     "gh-pages": "^5.0.0",
     "install": "^0.13.0",
+    "js-cookie": "^3.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
@@ -62,6 +63,7 @@
     ]
   },
   "devDependencies": {
-    "@types/chart.js": "^2.9.37"
+    "@types/chart.js": "^2.9.37",
+    "@types/js-cookie": "^3.0.3"
   }
 }
