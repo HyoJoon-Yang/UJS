@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.status import HTTP_400_BAD_REQUEST
 
 from .models import User, UserInfo
 from .serializers import PrivateUserSerializer, UserCreateSerializer
@@ -65,7 +66,7 @@ class LogIn(APIView):
             login(request, user)
             return Response({"ok":"Welcome!"})
         else:
-            return Response({"error":"wrong password"})
+            return Response({"error":"wrong password"}, status=HTTP_400_BAD_REQUEST)
         
 
 class LogOut(APIView):
