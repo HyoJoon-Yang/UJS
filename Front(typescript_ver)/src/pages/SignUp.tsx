@@ -2,6 +2,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { motion } from "framer-motion";
 import React from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { userSignUp } from "src/api";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   return (
@@ -27,17 +31,57 @@ function SignUp() {
   );
 }
 
+interface IForm {
+  email: string;
+  password: string;
+  nickname: string;
+}
+
 function SignUpForm() {
+  const { register, handleSubmit } = useForm<IForm>();
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+  const mutation = useMutation(userSignUp, {
+    onMutate: () => {
+      console.log("mutation starting");
+    },
+    onSuccess: (data) => {
+      console.log("mutation is successful");
+      queryClient.refetchQueries(["me"]);
+      navigate('/login')
+    },
+    onError: (error) => {
+      console.log("mutation has an error");
+    },
+  });
+  const onSubmit = ({ email, password, nickname }: IForm) => {
+    mutation.mutate({ email, password, nickname });
+  };
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicName">
-        <Form.Control type="text" placeholder="User name" />
-      </Form.Group>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control
+          required
+          {...register("email", { required: true })}
+          type="email"
+          placeholder="Email"
+        />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control
+          required
+          {...register("password", { required: true })}
+          type="password"
+          placeholder="Password"
+        />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicName">
+        <Form.Control
+          required
+          {...register("nickname", { required: true })}
+          type="text"
+          placeholder="Nickname"
+        />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="로그인 유지하기" />
