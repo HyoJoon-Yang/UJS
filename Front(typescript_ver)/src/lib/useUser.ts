@@ -7,8 +7,8 @@ export default function useUser() {
     refetchOnWindowFocus: false,
   });
   return {
-    userLoading: isLoading,
+    userLoading :isLoading,
     user: data,
-    isAuthenticated: !isError,
-  };
+    isLoggedIn: !isError
+  }
 }
