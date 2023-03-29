@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import React from "react";
 import { Layout } from "src/components/layout/Layout";
 import Banner from "src/components/Banner";
-import BoardList from "src/components/BoardList";
+import BoardList from "src/components/BoardListNotice";
 
 export default function Notice() {
   return (
