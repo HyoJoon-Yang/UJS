@@ -1,9 +1,9 @@
 import Button from "react-bootstrap/Button";
-import Banner from "src/components/Banner";
+import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import BoardList from "../components/BoardList";
-import { Layout } from "src/components/layout/Layout";
+import BoardList from "../components/BoardListCommu";
+import { Layout } from "../components/layout/Layout";
 import React from "react";
 
 export default function Commu() {
