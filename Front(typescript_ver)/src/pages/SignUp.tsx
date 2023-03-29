@@ -7,27 +7,31 @@ import { userSignUp } from "src/api";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
+import ProtectedLogin from "src/components/ProtectedLogin";
+
 function SignUp() {
   return (
-    <motion.div
-      initial={{ scale: 0 }}
-      animate={{ rotate: 0, scale: 1 }}
-      transition={{
-        type: "spring",
-        stiffness: 260,
-        damping: 20,
-      }}
-    >
-      <div className="login_contain">
-        <img id="UJS_logo" alt="UJS_logo" src="img/logo.svg" />
-        <SignUpForm />
-        <hr />
-        <button>
-          <img id="google_logo" alt="google-icon" src="img/google-icon.png" />
-          구글 계정 연결하기
-        </button>
-      </div>
-    </motion.div>
+    <ProtectedLogin>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ rotate: 0, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+        }}
+      >
+        <div className="login_contain">
+          <img id="UJS_logo" alt="UJS_logo" src="img/logo.svg" />
+          <SignUpForm />
+          <hr />
+          <button>
+            <img id="google_logo" alt="google-icon" src="img/google-icon.png" />
+            구글 계정 연결하기
+          </button>
+        </div>
+      </motion.div>
+    </ProtectedLogin>
   );
 }
 
@@ -48,7 +52,7 @@ function SignUpForm() {
     onSuccess: (data) => {
       console.log("mutation is successful");
       queryClient.refetchQueries(["me"]);
-      navigate('/login')
+      navigate("/login");
     },
     onError: (error) => {
       console.log("mutation has an error");
