@@ -2,8 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "baseUrl": ".",
-    "typeRoots": ["node_modules/@types", "custom_typings"]
-    
+       "typeRoots": ["node_modules/@types", "custom_typings"],
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
