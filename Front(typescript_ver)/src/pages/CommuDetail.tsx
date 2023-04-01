@@ -6,25 +6,95 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import PostRemoveModal from "../components/PostRemoveModal";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import "../styles/CommuDetail.css";
 import React from "react";
 import ProtectedPage from "src/components/ProtectedPage";
+import { getPostsDetail,getComments, getPosts, getMe, createComment } from "../apipost";
+import { PostList,Comment } from "../types";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
 
-export default function CommuDetail() {
+export interface Owner{
+  pk: number;
+  name: string;
+  avatar: string;
+}
+export interface Post {
+  pk: number;
+  created_at: string;
+  updated_at: string;
+}
+
+interface IForm {
+  owner: Owner
+  post: Post
+  contents: string;
+}
+
+const CommuDetail = () => {  
+  // 게시판 관련
+  const { postPk } = useParams()  as { postPk: string }; //파라미터 불러오기
+  const { data} = useQuery<Comment[]>(["comment"], getComments);
+  
+  console.log(data)
+  const {  data:postData} = useQuery<PostList>(
+    ["posts", postPk],
+    getPostsDetail
+  );
+  var kind="";
+  if (postData?.kind == "posts"){
+    kind = "자유게시판";
+  } 
+  else if(postData?.kind=="suggest"){
+    kind = "공지사항";
+  }
+  else{
+    kind="건의사항";
+  }
+  const myPost: Post = {
+    pk: postData?.id ?? 0,
+    created_at: postData?.create_at ?? "",
+    updated_at: postData?.update_at ?? "",
+  };
+  console.log(myPost)
   let navigate = useNavigate();
+
+// 코멘트관련  
+  const { register, handleSubmit } = useForm<IForm>();
+  const mutation = useMutation(createComment, {
+  
+    onMutate: () => {
+      console.log("mutation starting");
+    },
+    onSuccess: (data) => {
+      console.log("mutation is successful");
+      navigate("/commu");
+    },
+    onError: (error) => {
+      console.log("mutation has an error");
+    },
+  });
+  const onSubmit = ({owner,post,contents }: IForm) => {
+   
+    mutation.mutate({owner,post,contents});
+  };
+
+
+
   return (
     <ProtectedPage>
       <Layout>
         <Container style={{ paddingTop: "20px" }}>
           <Container fluid>
-            <h3>글 제목</h3>
-            <h6>작성자 아이디 | 작성일</h6>
+            
+            <h3>{postData?.title}</h3>
+            <h6>작성자 : {postData?.owner?.name ?? "" }  | {kind}</h6>
             <hr />
             <Container
               style={{ height: "550px", fontWeight: "500", fontSize: "20px" }}
             >
-              글 내용입니다.
+              <h3>{postData?.kind}</h3>
             </Container>
             <hr />
             <Container id="commu-detail-btn-group">
@@ -40,44 +110,69 @@ export default function CommuDetail() {
               <PostRemoveModal />
             </Container>
           </Container>
-
+       
           <Container className="comment-input-form">
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <InputGroup className="mb-3">
+            <Form.Control
+               required
+               
+               {...register("post", { required: true })}
+                maxLength={400}
+                value={JSON.stringify(myPost)}
+                type="hidden"
+              />
+            
               <Form.Control
+               required
+               {...register("contents", { required: true })}
                 maxLength={400}
                 placeholder="댓글을 입력하세요. (400자 제한)"
               />
-              <Button variant="outline-secondary" id="button-addon2">
+              <Button variant="outline-secondary" type="submit" id="button-addon2">
                 작성
               </Button>
             </InputGroup>
+             </Form>
             <Container className="comment-form">
+            {data?.filter((e:any) => e.post.pk == postPk).map((e:any) => (
+                
+        
+                     
               <Row>
+
+                
+               
+                     
                 <Col xs={2}>
+                  
                   <div className="comment-user-profile">
                     <div className="comment-user-img"></div>
-                    <p>작성자 아이디</p>
-                    <p>작성시간</p>
+
+                    
+
+
+                    <p>{e.owner.nickname}</p>
+                    <p>{e.post.create_at}</p>
                   </div>
                 </Col>
                 <Col xs={10}>
                   <div className="comment-output">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                    {e.contents}
                   </div>
                 </Col>
+                
               </Row>
+               ))}
               <hr />
+              
             </Container>
+           
           </Container>
         </Container>
       </Layout>
     </ProtectedPage>
   );
 }
+
+export default CommuDetail;
