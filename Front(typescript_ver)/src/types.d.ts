@@ -13,11 +13,7 @@
     created_at: string;
     updated_at: string;
   }
- export interface Comment {
-    owner: Owner;
-    title: string;
-    contents: string;
- } 
+
  export interface PostDetail {
     pk: number;
     kind: string;
@@ -26,5 +22,17 @@
     owner: Owner;
     created_at: string;
     updated_at: string;
-    comment: Comment;
   }
+
+
+  
+  export interface Post {
+    pk: number;
+    created_at: string;
+    updated_at: string;
+  }
+  export interface Comment {
+    owner: Owner;
+    post: Post;
+    contents: string;
+ } 
