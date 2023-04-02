@@ -28,6 +28,7 @@ class TinyUserSerializer(serializers.ModelSerializer):
             "avator",
             "name",
             "nickname",
+            "email",
         )
 
 
@@ -35,15 +36,9 @@ class PrivateUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        exclude = (
-            "password",
-            "is_superuser",
-            "last_login",
-            "first_name",
-            "last_name",
-            "date_joined",
-            "is_staff",
-            "is_active",
-            "groups",
-            "user_permissions",
+        fields = (
+            "avator",
+            "name",
+            "nickname",
+            "email",
         )

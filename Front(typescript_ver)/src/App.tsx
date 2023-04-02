@@ -31,10 +31,12 @@ export default function App() {
           <Route path="/user-rank" element={<UserRank />} />
           <Route path="/first" element={<First />} />
           <Route path="/commu" element={<Commu />} />
-          <Route path="/post-form" element={<CommuPostForm />} />
-          <Route path="/commu-detail" element={<CommuDetail />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/post-form" element={<CommuPostForm />} />
+          <Route path="/commu/detail/:postPk" element={<CommuDetail />} />
+          <Route path="/notice/detail/:postPk" element={<CommuDetail />} />
+          <Route path="/faq/detail/:postPk" element={<CommuDetail />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>

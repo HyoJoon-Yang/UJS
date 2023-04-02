@@ -31,6 +31,13 @@ export default function UserAccountModal() {
         </Modal.Header>
         <Modal.Body>
           <Form.Group className="mb-3">
+            <Form.Label>닉네임</Form.Label>
+            <Form.Control type="text" placeholder="닉네임" />
+            <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
+              변경할 닉네임을 입력해주세요.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3">
             <Form.Label>이메일</Form.Label>
             <Form.Control type="email" placeholder="이메일 주소" />
             <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
@@ -64,6 +71,13 @@ export default function UserAccountModal() {
             <Form.Control type="text" placeholder="체중(kg)" style={{ width: "150px"}} />
             <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
               체중을 입력해주세요.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>프로필 이미지 변경</Form.Label>
+            <input type="file" style={{ display: "block" }}/>
+            <Form.Text className="text-muted" style={{ fontSize: "13px" }}>
+              변경할 프로필 이미지를 업로드해주세요.
             </Form.Text>
           </Form.Group>
         </Modal.Body>
