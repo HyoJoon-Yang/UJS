@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { logOut } from "src/api";
+import { useQueryClient } from "@tanstack/react-query";
+
 // 로그아웃 버튼과 모달창 버튼의 css는 Navbar.css에 적어둠
 
 export default function LogoutBtn() {
@@ -9,6 +12,12 @@ export default function LogoutBtn() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const queryClient = useQueryClient();
+  const onLogOut = async () => {
+    await logOut();
+    queryClient.refetchQueries(["me"]);
+  };
 
   return (
     <div>
@@ -26,11 +35,12 @@ export default function LogoutBtn() {
             닫기
           </Button>
           <Link to="/first">
-            <Button className="logout_modal_btn">로그아웃</Button>
+            <Button onClick={onLogOut} className="logout_modal_btn">
+              로그아웃
+            </Button>
           </Link>
         </Modal.Footer>
       </Modal>
     </div>
   );
 }
-
