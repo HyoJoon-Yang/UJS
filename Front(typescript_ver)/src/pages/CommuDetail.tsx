@@ -52,6 +52,7 @@ const CommuDetail = () => {
   else{
     kind="건의사항";
   }
+  
   const myPost: Post = {
     pk: postData?.id ?? 0,
     created_at: postData?.create_at ?? "",
@@ -79,7 +80,7 @@ const CommuDetail = () => {
    
     mutation.mutate({owner,post,contents});
   };
-
+  console.log(postData?.image)
 
 
   return (
@@ -94,7 +95,8 @@ const CommuDetail = () => {
             <Container
               style={{ height: "550px", fontWeight: "500", fontSize: "20px" }}
             >
-              <h3>{postData?.kind}</h3>
+              <img src={`http:/127.0.0.1:8000${postData?.kind}`} />
+              
             </Container>
             <hr />
             <Container id="commu-detail-btn-group">
@@ -114,15 +116,13 @@ const CommuDetail = () => {
           <Container className="comment-input-form">
           <Form onSubmit={handleSubmit(onSubmit)}>
             <InputGroup className="mb-3">
-            <Form.Control
-               required
-               
-               {...register("post", { required: true })}
-                maxLength={400}
-                value={JSON.stringify(myPost)}
-                type="hidden"
-              />
+            <input
+            {...register("post", { required: true })}
+            maxLength={400}
             
+            defaultValue={myPost}
+            type="hidden"
+          />
               <Form.Control
                required
                {...register("contents", { required: true })}
