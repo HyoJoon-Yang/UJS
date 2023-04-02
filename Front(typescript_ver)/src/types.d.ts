@@ -9,6 +9,7 @@
     kind: string;
     title: string;
     contents: string;
+    
     owner: Owner;
     created_at: string;
     updated_at: string;
@@ -20,6 +21,7 @@
     title: string;
     contents: string;
     owner: Owner;
+    image:string;
     created_at: string;
     updated_at: string;
   }
