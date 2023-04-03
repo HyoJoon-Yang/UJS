@@ -30,7 +30,7 @@ services:
                       python manage.py runserver 0.0.0.0:8000"
     env_file:
       - ./Back/settings.ini
-    build:
+    build: 
       context: ./Back/
       dockerfile: Dockerfile
     ports:
