@@ -19,7 +19,8 @@
 }
 
 #comparison-result-mov {
-    border: 1px solid blue;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
     width: 350px;
     height: 550px;
     margin: 20px auto;

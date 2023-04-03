@@ -4,6 +4,8 @@ import "../styles/ComparisonResult.css";
 import React from "react";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 import { EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, LineShareButton, LineIcon } from "react-share";
 
 
@@ -37,9 +39,34 @@ export default function ComparisonResult() {
         AI가 분석을 끝마쳤습니다. <br /> 결과를 확인해주세요!
       </p>
       <h6>자세 일치율: ??.?%</h6>
+
       <Container id="comparison-result-mov">
-        이 부분에 분석 영상이 출력됩니다.
+        <Tabs
+        defaultActiveKey="1"
+        id="uncontrolled-tab-example"
+        className="mb-3"
+        >
+          <Tab eventKey="1" title="1">
+            1번 동작입니다.
+          </Tab>
+          <Tab eventKey="2" title="2">
+            2번 동작입니다.
+          </Tab>
+          <Tab eventKey="3" title="3">
+            3번 동작입니다.
+          </Tab>
+          <Tab eventKey="4" title="4">
+            4번 동작입니다.
+          </Tab>
+          <Tab eventKey="5" title="5">
+            5번 동작입니다.
+          </Tab>
+          <Tab eventKey="6" title="6">
+            6번 동작입니다.
+          </Tab>
+        </Tabs>
       </Container>
+
       <Container id="comparison-result-text">
         <button id="result-onoff-btn" onClick={() => setIsOn(!isOn)}>
           {isOn ? "분석 결과 숨기기" : "분석 결과 보이기"}

@@ -13,7 +13,7 @@ export default function Navbars() {
       <Container>
         <Link to="/">
           <Navbar.Brand>
-            <img id="navbar_logo" src="img/logo.svg" alt="UJS_logo" />
+            <img id="navbar_logo" src={ process.env.PUBLIC_URL + "/img/logo.svg"} alt="UJS_logo" />
           </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
