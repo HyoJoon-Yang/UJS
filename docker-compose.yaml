@@ -10,13 +10,13 @@ services:
 
   db:
     restart: always
-    container_name: mysql_service
-    image: mysql:5.7
+    image: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: "1234"
-      MYSQL_DATABASE: "django"
-      MYSQL_USER: "root"
-      MYSQL_PASSWORD: "1234"
+    - MYSQL_HOST=localhost
+    - MYSQL_PORT=3306
+    - MYSQL_ROOT_HOST=%
+    - MYSQL_DATABASE=django
+    - MYSQL_ROOT_PASSWORD=1234
     ports:
       - "3302:3306"
     networks:
@@ -25,12 +25,11 @@ services:
   project:
     restart: always
     container_name: code
-    command :         python manage.py migrate &&
+    command : bash -c "
+                      python manage.py migrate &&
                       python manage.py runserver 0.0.0.0:8000"
-    environment:
-      MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_HOST: db
-
+    env_file:
+      - ./Back/settings.ini
     build:
       context: ./Back/
       dockerfile: Dockerfile
