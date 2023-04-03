@@ -32,16 +32,20 @@ export default function Footer() {
               <img
                 className="footer_icon"
                 alt="github_logo"
-                src="img/github.png"
-              />
+                src={ process.env.PUBLIC_URL + "/img/github.png" }
+              /> 
             </a>
-            <img className="footer_icon" alt="email" src="img/email.png" />
+            <img className="footer_icon" alt="email" 
+              src={ process.env.PUBLIC_URL + "/img/email.png"} 
+            />
             <img
               className="footer_icon"
               alt="github_logo"
-              src="img/github.png"
+              src={ process.env.PUBLIC_URL + "/img/github.png"}
             />
-            <img id="footer_UJS_logo" alt="UJS_logo" src="img/logo.svg" />
+            <img id="footer_UJS_logo" alt="UJS_logo" 
+              src={ process.env.PUBLIC_URL + "/img/logo.svg"}
+            />
           </Col>
         </Row>
       </Container>
