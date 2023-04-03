@@ -1,0 +1,62 @@
+version: "3.2"
+services:
+  redis:
+    restart: always
+    image: redis:5
+    ports:
+      - "6379:6379"
+    networks:
+      - db-net
+
+  db:
+    restart: always
+    container_name: mysql_service
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+      MYSQL_DATABASE: "django"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "1234"
+    ports:
+      - "3302:3306"
+    networks:
+      - db-net
+
+  project:
+    restart: always
+    container_name: code
+    command :         python manage.py migrate &&
+                      python manage.py runserver 0.0.0.0:8000"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_HOST: db
+
+    build:
+      context: ./Back/
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    networks:
+      - db-net
+
+  frontend:
+    restart: always
+    command : npm start
+    container_name: front
+    build:
+      context: ./Front(typescript_ver)/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    depends_on:
+      - project
+    networks:
+      - db-net
+
+networks:
+  db-net:
+    driver: bridge
