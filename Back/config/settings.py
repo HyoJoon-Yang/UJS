@@ -76,7 +76,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, '../Front(typescript_ver)/build')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -151,6 +151,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "/static/"
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, '../Front(typescript_ver)/build/static')
+]
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/uploads/"
 
@@ -184,3 +188,4 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:3000"]
 CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]
+
