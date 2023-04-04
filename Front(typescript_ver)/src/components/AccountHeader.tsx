@@ -9,7 +9,15 @@ export default function AccountHeader() {
   const { user } = useUser();
   return (
     <Container fluid id="account-bg">
-      <div id="profile-img" style={{ backgroundImage: `url("http://localhost:8000${user?.avator}")`, backgroundSize: 'cover' }} ></div>
+      {user?.avator != null ? (
+        <div
+          id="profile-img"
+          style={{
+            backgroundImage: `url("http://localhost:8000${user?.avator}")`,
+            backgroundSize: "cover",
+          }}
+        ></div>
+      ) : <div id="profile-img" ></div> }
 
       <span id="profile-desc">
         <UserAccountModal />
