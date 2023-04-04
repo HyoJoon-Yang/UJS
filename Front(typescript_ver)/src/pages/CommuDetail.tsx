@@ -43,10 +43,10 @@ const CommuDetail = () => {
     kind = "자유게시판";
   } 
   else if(postData?.kind=="suggest"){
-    kind = "공지사항";
+    kind = "건의사항";
   }
   else{
-    kind="건의사항";
+    kind="공지사항";
   }
   let navigate = useNavigate();
 
