@@ -95,7 +95,7 @@ const CommuDetail = () => {
             <Container
               style={{ height: "550px", fontWeight: "500", fontSize: "20px" }}
             >
-              <img src={`http:/127.0.0.1:8000${postData?.kind}`} />
+              <img src={`http://localhost:8000${postData?.image}`} />
               
             </Container>
             <hr />
