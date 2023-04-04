@@ -106,7 +106,7 @@ class UserAnalysis(APIView):
             pose.close()
             cap.release()
             out.release()
-
+            
             return Response(UserAnalysisSerializer(video).data)
         else:
             return Response(serializer.errors)
