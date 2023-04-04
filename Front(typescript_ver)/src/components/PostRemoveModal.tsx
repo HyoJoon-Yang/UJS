@@ -40,7 +40,7 @@ if (postPk === undefined) {
           <Button className="btn_close logout_modal_btn" onClick={handleClose}>
             닫기
           </Button>
-          <Link to="/commu"><Button 
+          <Link to="/"><Button 
               onClick={handleDelete} className="logout_modal_btn">게시글 삭제</Button></Link>
         </Modal.Footer>
       </Modal>
