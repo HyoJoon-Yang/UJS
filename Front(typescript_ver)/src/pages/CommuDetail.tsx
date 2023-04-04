@@ -59,7 +59,7 @@ const CommuDetail = () => {
     },
     onSuccess: (data) => {
       console.log("mutation is successful");
-      navigate("/commu");
+      window.location.replace(`/commu/detail/${postPk}`);
     },
     onError: (error) => {
       console.log("mutation has an error");
