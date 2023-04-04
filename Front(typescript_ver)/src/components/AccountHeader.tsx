@@ -10,13 +10,12 @@ export default function AccountHeader() {
   const { user } = useUser();
   return (
     <Container fluid id="account-bg">
-      {user?.avator ? <Avatar id="profile-img" src={`http://localhost:8000${user?.avator}`} /> : <Avatar id="profile-img"/>}
-      
+      <div id="profile-img" style={{ backgroundImage: `url("http://localhost:8000${user?.avator}")`, backgroundSize: 'cover' }} ></div>
 
       <span id="profile-desc">
         <UserAccountModal />
         <h3>
-          <Text as="b">{user?.nickname}</Text>
+          <b>{user?.nickname}</b>
         </h3>
         <p>
           게시글 0 | <Link to="/user-list">진단목록</Link> 0
