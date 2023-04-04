@@ -20,15 +20,11 @@ export interface Owner{
   name: string;
   avatar: string;
 }
-export interface Post {
-  pk: number;
-  created_at: string;
-  updated_at: string;
-}
+
 
 interface IForm {
   owner: Owner
-  post: Post
+  post: string
   contents: string;
 }
 
@@ -52,13 +48,6 @@ const CommuDetail = () => {
   else{
     kind="건의사항";
   }
-  
-  const myPost: Post = {
-    pk: postData?.id ?? 0,
-    created_at: postData?.create_at ?? "",
-    updated_at: postData?.update_at ?? "",
-  };
-  console.log(myPost)
   let navigate = useNavigate();
 
 // 코멘트관련  
@@ -77,10 +66,10 @@ const CommuDetail = () => {
     },
   });
   const onSubmit = ({owner,post,contents }: IForm) => {
-   
+    post=postPk;
     mutation.mutate({owner,post,contents});
   };
-  console.log(postData?.image)
+
 
 
   return (
@@ -95,8 +84,7 @@ const CommuDetail = () => {
             <Container
               style={{ height: "550px", fontWeight: "500", fontSize: "20px" }}
             >
-              <img src={`http://localhost:8000${postData?.image}`} />
-              
+              <h3>{postData?.kind}</h3>
             </Container>
             <hr />
             <Container id="commu-detail-btn-group">
@@ -116,13 +104,8 @@ const CommuDetail = () => {
           <Container className="comment-input-form">
           <Form onSubmit={handleSubmit(onSubmit)}>
             <InputGroup className="mb-3">
-            <input
-            {...register("post", { required: true })}
-            maxLength={400}
+           
             
-            defaultValue={myPost}
-            type="hidden"
-          />
               <Form.Control
                required
                {...register("contents", { required: true })}
@@ -135,7 +118,8 @@ const CommuDetail = () => {
             </InputGroup>
              </Form>
             <Container className="comment-form">
-            {data?.filter((e:any) => e.post.pk == postPk).map((e:any) => (
+              
+            {data?.filter((e:any) => e.post == postPk).map((e:any) => (
                 
         
                      
@@ -147,13 +131,24 @@ const CommuDetail = () => {
                 <Col xs={2}>
                   
                   <div className="comment-user-profile">
-                    <div className="comment-user-img"></div>
-
+                   
+                    {e.owner.avator != null ? (
+        <div
+        className="comment-user-img"
+          
+          style={{
+            
+            
+            backgroundImage: `url("http://localhost:8000${e.owner?.avator}")`,
+            backgroundSize: "cover",
+          }}
+        ></div>
+      ) : <div className="comment-user-img"></div> }
                     
 
 
                     <p>{e.owner.nickname}</p>
-                    <p>{e.post.create_at}</p>
+                    <p>2023-04-05</p>
                   </div>
                 </Col>
                 <Col xs={10}>
