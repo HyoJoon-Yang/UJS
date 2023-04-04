@@ -54,7 +54,7 @@ class PublicUser(APIView):
         serializer = PrivateUserSerializer(user)
         return Response(serializer.data)
     
-
+    
 class LogIn(APIView):
     def post(self, request):
         email = request.data.get('email')

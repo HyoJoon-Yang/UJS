@@ -8,8 +8,10 @@ import { Container } from "react-bootstrap";
 import AccountHeader from "src/components/AccountHeader";
 import AccountUserChart from "src/components/AccountUserChart";
 import ProtectedPage from "src/components/ProtectedPage";
+import useUser from "src/lib/useUser";
 
 export default function Account() {
+  const { user } = useUser();
   return (
     <ProtectedPage>
       <Layout>
@@ -18,7 +20,7 @@ export default function Account() {
           <Container fluid id="account-article">
             <Row>
               <Col sm={5} id="user-ranking">
-                <h3>User name님의 랭킹</h3>
+                <h3>{user?.nickname}님의 랭킹</h3>
                 <Link to="/user-rank">
                   <img src="img/Ranking.svg" alt="ranking svg" />
                   <h5>
@@ -27,7 +29,7 @@ export default function Account() {
                 </Link>
               </Col>
               <Col sm={7} id="user-chart">
-                <h3>User name님의 성장 그래프</h3>
+                <h3>{user?.nickname}님의 성장 그래프</h3>
                 <div style={{ width: "100%" }}>
                   <AccountUserChart />
                 </div>
