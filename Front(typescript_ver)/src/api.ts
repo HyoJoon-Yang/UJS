@@ -61,41 +61,40 @@ export const userSignUp = ({ email, password, nickname }: IUserSignUp) =>
     )
     .then((response) => response.data);
 
+export interface IModifyProfile {
+  // email: string;
+  // password: string;
+  nickname: string;
+  gender: string;
+  height: number;
+  weight: number;
+  avator: any;
+}
 
-    export interface IModifyProfile {
-      // email: string;
-      // password: string;
-      nickname: string;
-      gender: string;
-      height: number;
-      weight: number;
-      avator: any;
-    }
-    
-    export const modifyUser = (variables: IModifyProfile) =>
-      instance
-        .put(`users/me`, variables, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            "X-CSRFToken": Cookie.get("csrftoken") || "",
-          },
-        })
-        .then((response) => response.data);
-    
-    export interface IAnalysis {
-      video: any;
-    }
-    
-    export const videoUpload = (video: IAnalysis) =>
-      instance
-        .post(
-          `analyses/`,
-          { video },
-          {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-              "X-CSRFToken": Cookie.get("csrftoken") || "", 
-            },
-          }
-        )
-        .then((response) => response.data);    
+export const modifyUser = (variables: IModifyProfile) =>
+  instance
+    .put(`users/me`, variables, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "X-CSRFToken": Cookie.get("csrftoken") || "",
+      },
+    })
+    .then((response) => response.data);
+
+export interface IAnalysis {
+  video: any;
+}
+
+export const videoUpload = (video: IAnalysis) =>
+  instance
+    .post(
+      `analyses/`,
+      { video },
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "X-CSRFToken": Cookie.get("csrftoken") || "",
+        },
+      }
+    )
+    .then((response) => response.data);
