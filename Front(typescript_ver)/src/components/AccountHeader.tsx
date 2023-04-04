@@ -4,7 +4,6 @@ import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
 import useUser from "src/lib/useUser";
-import { Avatar, Text, WrapItem } from "@chakra-ui/react";
 
 export default function AccountHeader() {
   const { user } = useUser();
