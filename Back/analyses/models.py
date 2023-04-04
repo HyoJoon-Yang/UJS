@@ -8,7 +8,7 @@ class Analysis(models.Model):
         related_name="analyses",
     )
 
-    video = models.FileField()
+    video = models.FileField(upload_to="my_video", null=True)
 
     info = models.ForeignKey(
         "users.UserInfo",

@@ -9,6 +9,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
         fields = (
             "email",
             "password",
+            "nickname",
         )
 
 
@@ -41,4 +42,7 @@ class PrivateUserSerializer(serializers.ModelSerializer):
             "name",
             "nickname",
             "email",
+            "gender",
+            "height",
+            "weight",
         )

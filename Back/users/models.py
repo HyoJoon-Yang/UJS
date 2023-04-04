@@ -46,9 +46,9 @@ class User(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
 
 
-    avator = models.ImageField(blank=True)              # 프로필 이미지
-    name = models.CharField(max_length=10)              # 이름
-    nickname = models.CharField(max_length=10)          # 닉네임
+    avator = models.ImageField(upload_to="my_profile", blank=True)              # 프로필 이미지
+    name = models.CharField(null=True, blank=True, max_length=10)              # 이름
+    nickname = models.CharField(max_length=10, unique=True)          # 닉네임
 
     terms = models.BooleanField(default=False)          # 약관
 
@@ -62,6 +62,8 @@ class User(AbstractUser):
     height = models.PositiveIntegerField(null=True, blank=True)     # 키
     weight = models.PositiveIntegerField(null=True, blank=True)     # 몸무게
 
+    rank = models.PositiveIntegerField(null=True, default=0)
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
@@ -71,18 +73,15 @@ class User(AbstractUser):
         return self.email
 
 
-
-
 class UserInfo(models.Model):                              # 사용자 정보
     
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         "users.User",
         on_delete=models.CASCADE,
         null = True,
         related_name="userinfo",
     )
 
-    rank = models.PositiveIntegerField(null=True)
     score = models.FloatField(null=True, validators=[MinValueValidator(0.0)])
 
     def __str__(self):
