@@ -84,7 +84,9 @@ const CommuDetail = () => {
             <Container
               style={{ height: "550px", fontWeight: "500", fontSize: "20px" }}
             >
-              <h3>{postData?.kind}</h3>
+              {postData?.image != null ? (<img src={`http://localhost:8000${postData?.image}`}/>
+              ) :<img src={`http://localhost:8000/uploads/post/2023/04/02/golf.jpg`}/>  }
+                
             </Container>
             <hr />
             <Container id="commu-detail-btn-group">
