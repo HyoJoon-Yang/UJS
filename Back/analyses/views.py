@@ -1,12 +1,9 @@
-import requests
 from django.conf import settings
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.exceptions import ParseError
 from .serializers import UserAnalysisSerializer
 
 from .models import Analysis
-import time
 
 
 class UserAnalysis(APIView):
@@ -29,7 +26,7 @@ class UserAnalysis(APIView):
             mp_drawing_styles = mp.solutions.drawing_styles
             mp_pose = mp.solutions.pose
 
-            video_path = f"uploads/{video.video}"
+            video_path = f"media/{video.video}"
             print(video_path)
             cap = cv2.VideoCapture(video_path)
 
