@@ -46,7 +46,7 @@ class User(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
 
 
-    avatar = models.ImageField(upload_to="my_profile", blank=True)              # 프로필 이미지
+    avator = models.ImageField(upload_to="my_profile", blank=True)              # 프로필 이미지
     name = models.CharField(null=True, blank=True, max_length=10)              # 이름
     nickname = models.CharField(max_length=10, unique=True)          # 닉네임
 
