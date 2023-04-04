@@ -13,7 +13,7 @@
     border: 6px solid white;
     position: absolute;
     background-color: #9DC08B;
-    /* background-image: url("../../public/img/user_default_img.png"); */
+    background-image: url("../../public/img/user_default_img.png");
     bottom: -75px;
 }
 
