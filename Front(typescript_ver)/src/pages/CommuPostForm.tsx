@@ -47,7 +47,10 @@ function CommuPostForm() {
   const onSubmit = ({kind,title,content,owner,image }: IForm) => {
     console.log(kind,title,content,owner,image)
     console.log(image)
+    if (image != undefined || image != null){
       image=image[0]
+    }
+    console.log(image)
     mutation.mutate({kind, title,content,owner,image});
   };
 
