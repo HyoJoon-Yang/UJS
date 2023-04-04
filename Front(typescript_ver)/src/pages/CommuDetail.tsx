@@ -98,7 +98,7 @@ const CommuDetail = () => {
               >
                 목록으로
               </button>
-              <button className="commu-detail-btn">수정하기</button>
+              {/* <button className="commu-detail-btn">수정하기</button> */}
               <PostRemoveModal />
             </Container>
           </Container>
