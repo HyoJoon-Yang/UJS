@@ -26,24 +26,28 @@ export const getPostsDetail = async ({ queryKey }: QueryFunctionContext) => {
     name: string,
     nickname: string,
     email: string
+
+    
 }
   export interface Board {
+    kind: string;
     title: string;
     content: string;
-    kind: string;
+    image:any;
     owner: Owner;
-    image:string;
   }
-  export const createBoard = ({ title, content, kind, owner,image }: Board) =>
+  export const createBoard = ({kind, title, content, owner}: Board) =>
   instance
     .post(
       `commu/posts/`,
-      { title, content, kind,owner},
+      { kind,title, content,owner},
       {
         headers: {
           "X-CSRFToken": Cookie.get("csrftoken") || "",
         },
       }
+      
+      
     )
     .then((response) => response.data);
 
@@ -59,11 +63,11 @@ export const getPostsDetail = async ({ queryKey }: QueryFunctionContext) => {
 
     export const getComments = () => instance.get(`comment/`).then((r) => r.data);
 
-    export const createComment = ({ owner, post, contents }:Comment) =>
+    export const createComment = ({ post, contents,owner,  }:Comment) =>
     instance
       .post(
         `comment/`,
-        { owner, post, contents},
+        {  post, contents,owner},
         {
           headers: {
             "X-CSRFToken": Cookie.get("csrftoken") || "",

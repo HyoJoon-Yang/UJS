@@ -47,22 +47,22 @@ export default function ComparisonResult() {
         className="mb-3"
         >
           <Tab eventKey="1" title="1">
-            1번 동작입니다.
+            <img src="img/adress.jpg" alt="adress picture" style={{ width: "100%" }} />
           </Tab>
           <Tab eventKey="2" title="2">
-            2번 동작입니다.
+            <img src="img/backswingtop.jpg" alt="backswingtop picture" style={{ width: "100%" }} />
           </Tab>
           <Tab eventKey="3" title="3">
-            3번 동작입니다.
+            <img src="img/backswing.jpg" alt="backswing picture" style={{ width: "100%" }} />
           </Tab>
           <Tab eventKey="4" title="4">
-            4번 동작입니다.
+            <img src="img/impact.jpg" alt="impact picture" style={{ width: "100%" }} />
           </Tab>
           <Tab eventKey="5" title="5">
-            5번 동작입니다.
+            <img src="img/follow.jpg" alt="follow picture" style={{ width: "100%" }} />
           </Tab>
           <Tab eventKey="6" title="6">
-            6번 동작입니다.
+            <img src="img/finish.jpg" alt="finish picture" style={{ width: "100%" }} />
           </Tab>
         </Tabs>
       </Container>

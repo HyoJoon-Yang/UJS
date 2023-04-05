@@ -20,15 +20,11 @@ export interface Owner{
   name: string;
   avatar: string;
 }
-export interface Post {
-  pk: number;
-  created_at: string;
-  updated_at: string;
-}
+
 
 interface IForm {
   owner: Owner
-  post: Post
+  post: string
   contents: string;
 }
 
@@ -47,18 +43,11 @@ const CommuDetail = () => {
     kind = "자유게시판";
   } 
   else if(postData?.kind=="suggest"){
-    kind = "공지사항";
+    kind = "건의사항";
   }
   else{
-    kind="건의사항";
+    kind="공지사항";
   }
-  
-  const myPost: Post = {
-    pk: postData?.id ?? 0,
-    created_at: postData?.create_at ?? "",
-    updated_at: postData?.update_at ?? "",
-  };
-  console.log(myPost)
   let navigate = useNavigate();
 
 // 코멘트관련  
@@ -70,17 +59,17 @@ const CommuDetail = () => {
     },
     onSuccess: (data) => {
       console.log("mutation is successful");
-      navigate("/commu");
+      window.location.replace(`/commu/detail/${postPk}`);
     },
     onError: (error) => {
       console.log("mutation has an error");
     },
   });
   const onSubmit = ({owner,post,contents }: IForm) => {
-   
+    post=postPk;
     mutation.mutate({owner,post,contents});
   };
-  console.log(postData?.image)
+
 
 
   return (
@@ -95,8 +84,9 @@ const CommuDetail = () => {
             <Container
               style={{ height: "550px", fontWeight: "500", fontSize: "20px" }}
             >
-              <img src={`http:/127.0.0.1:8000${postData?.kind}`} />
-              
+              {postData?.image != null ? (<img src={`http://localhost:8000${postData?.image}`}/>
+              ) :<img src={`http://localhost:8000/uploads/post/2023/04/02/golf.jpg`}/>  }
+                
             </Container>
             <hr />
             <Container id="commu-detail-btn-group">
@@ -108,7 +98,7 @@ const CommuDetail = () => {
               >
                 목록으로
               </button>
-              <button className="commu-detail-btn">수정하기</button>
+              {/* <button className="commu-detail-btn">수정하기</button> */}
               <PostRemoveModal />
             </Container>
           </Container>
@@ -116,13 +106,8 @@ const CommuDetail = () => {
           <Container className="comment-input-form">
           <Form onSubmit={handleSubmit(onSubmit)}>
             <InputGroup className="mb-3">
-            <input
-            {...register("post", { required: true })}
-            maxLength={400}
+           
             
-            defaultValue={myPost}
-            type="hidden"
-          />
               <Form.Control
                required
                {...register("contents", { required: true })}
@@ -135,7 +120,8 @@ const CommuDetail = () => {
             </InputGroup>
              </Form>
             <Container className="comment-form">
-            {data?.filter((e:any) => e.post.pk == postPk).map((e:any) => (
+              
+            {data?.filter((e:any) => e.post == postPk).map((e:any) => (
                 
         
                      
@@ -147,13 +133,24 @@ const CommuDetail = () => {
                 <Col xs={2}>
                   
                   <div className="comment-user-profile">
-                    <div className="comment-user-img"></div>
-
+                   
+                    {e.owner.avator != null ? (
+        <div
+        className="comment-user-img"
+          
+          style={{
+            
+            
+            backgroundImage: `url("http://localhost:8000${e.owner?.avator}")`,
+            backgroundSize: "cover",
+          }}
+        ></div>
+      ) : <div className="comment-user-img"></div> }
                     
 
 
                     <p>{e.owner.nickname}</p>
-                    <p>{e.post.create_at}</p>
+                    <p>2023-04-05</p>
                   </div>
                 </Col>
                 <Col xs={10}>
