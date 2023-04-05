@@ -4,7 +4,7 @@ import { Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { IAnalysis, videoUpload } from "src/api";
 import ComparisonResult from "src/components/ComparisonResult";
-// import Loading from "src/components/Loading";
+import Loading from "src/components/Loading";
 import "../styles/ComparisonUpload.css";
 
 interface FileState {
@@ -39,9 +39,12 @@ export default function ComparisonUpload() {
   };
 
   const [start, setStart] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function startHandler() {
     setStart(true);
+    setLoading(true);
+    setTimeout(function(){ setLoading(false);}, 3000);
   }
 
   return (
@@ -72,6 +75,7 @@ export default function ComparisonUpload() {
               <button type="submit" id="file-upload-btn" onClick={startHandler}>
                 분석 시작
               </button>
+              {loading && <Loading />}
               {start && <ComparisonResult />}
             </div>
           )}
