@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { IAnalysis, videoUpload } from "src/api";
+import ComparisonResult from "src/components/ComparisonResult";
+import Loading from "src/components/Loading";
 import "../styles/ComparisonUpload.css";
 
 interface FileState {
@@ -36,6 +38,15 @@ export default function ComparisonUpload() {
     });
   };
 
+  const [start, setStart] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  function startHandler() {
+    setStart(true);
+    setLoading(true);
+    setTimeout(function(){ setLoading(false);}, 3000);
+  }
+
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Container id="file-upload-container">
@@ -48,7 +59,7 @@ export default function ComparisonUpload() {
               type="file"
               id="file"
               onChange={fileUpload}
-              accept="video/mp4,video/mkv, video/x-m4v,video/*"
+              accept="video/mp4, video/mkv, video/mov, video/x-m4v, video/*"
             />
           </div>
           {file.video && (
@@ -60,9 +71,13 @@ export default function ComparisonUpload() {
             />
           )}
           {file.video && (
-            <button type="submit" id="file-upload-btn">
-              분석 시작
-            </button>
+            <div>
+              <button type="submit" id="file-upload-btn" onClick={startHandler}>
+                분석 시작
+              </button>
+              {loading && <Loading />}
+              {start && <ComparisonResult />}
+            </div>
           )}
         </div>
       </Container>

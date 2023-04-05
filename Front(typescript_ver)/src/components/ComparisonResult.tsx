@@ -31,14 +31,13 @@ export default function ComparisonResult() {
       </Popover>
     );
 
-  const [ isOn, setIsOn ] = useState(true);
+  // const [ isOn, setIsOn ] = useState(true);
   return (
     <Container fluid id="comparison-result-container">
       <h3>분석 결과</h3>
       <p>
         AI가 분석을 끝마쳤습니다. <br /> 결과를 확인해주세요!
       </p>
-      <h6>자세 일치율: ??.?%</h6>
 
       <Container id="comparison-result-mov">
         <Tabs
@@ -47,13 +46,35 @@ export default function ComparisonResult() {
         className="mb-3"
         >
           <Tab eventKey="1" title="adress">
-            <img src="img/adress.jpg" alt="adress picture" style={{ width: "100%" }} />
+            <img src="img/adress.png" alt="adress picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: PASS ✅ <br/>
+              팔 간격: PASS ✅ <br/>
+              골반 각도: PASS ✅ <br/>
+              스탠스: PASS ✅ <br/>
+              <hr/>
+              <b>100점</b>
+            </h6>
           </Tab>
           <Tab eventKey="2" title="backswing">
-            <img src="img/backswing.jpg" alt="backswing picture" style={{ width: "100%" }} />
+            <img src="img/backswing.png" alt="backswing picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: 왼쪽으로 중심이 기울어졌습니다. ❌ <br/>
+              팔 간격: 팔을 좀 더 펴주세요. ❌ <br/>
+              골반 각도: PASS ✅ <br/>
+              <hr/>
+              <b>33점</b>
+            </h6>
           </Tab>
           <Tab eventKey="3" title="backswingtop">
-            <img src="img/backswingtop.jpg"alt="backswingtop picture" style={{ width: "100%" }} />
+            <img src="img/backswingtop.png"alt="backswingtop picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: 왼쪽으로 중심이 기울어졌습니다. ❌ <br/>
+              팔 간격: 왼쪽으로 쏠렸습니다. ❌ <br/>
+              골반 각도: PASS ✅ <br/>
+              <hr/>
+              <b>33점</b>
+            </h6>
           </Tab>
           <Tab eventKey="4" title="impact">
             <img src="img/impact.jpg" alt="impact picture" style={{ width: "100%" }} />
@@ -68,12 +89,7 @@ export default function ComparisonResult() {
       </Container>
 
       <Container id="comparison-result-text">
-        <button id="result-onoff-btn" onClick={() => setIsOn(!isOn)}>
-          {isOn ? "분석 결과 숨기기" : "분석 결과 보이기"}
-        </button>
-        {isOn && <span>이 부분에 분석 결과 텍스트가 출력됩니다.</span>}
-        {/* {isOn && <><span>어깨회전 : 부족함 <br/> 골반위치 : pass <br/> 팔꿈치 위치: 왼쪽 팔꿈치</span></>} */}
-        <br />
+        <h4 style={{ marginTop: "30px", marginBottom: "30px" }}>총점 : ?? 점</h4>
         <button className="result-btn">
           <img src="img/download.svg" alt="download btn" /> 결과 저장하기
         </button>

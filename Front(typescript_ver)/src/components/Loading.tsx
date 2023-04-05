@@ -4,9 +4,9 @@ export default function Loading() {
   return (
     <div
       style={{
-        position: "absolute",
-        width: "100vw",
-        height: "100vh",
+        position: "fixed",
+        width: "100%",
+        height: "100%",
         top: "0",
         left: "0",
         background: "white",
@@ -15,6 +15,7 @@ export default function Loading() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        overflow: "hidden"
       }}
     >
       <h3 style={{ textAlign: "center" }}>Loading...</h3>
