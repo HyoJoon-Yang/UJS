@@ -36,13 +36,14 @@ export const getPostsDetail = async ({ queryKey }: QueryFunctionContext) => {
     image:any;
     owner: Owner;
   }
-  export const createBoard = ({kind, title, content, owner}: Board) =>
+  export const createBoard = ({kind, title, content, owner, image}: Board) =>
   instance
     .post(
       `commu/posts/`,
-      { kind,title, content,owner},
+      { kind,title, content,owner, image},
       {
         headers: {
+          "Content-Type": "multipart/form-data",
           "X-CSRFToken": Cookie.get("csrftoken") || "",
         },
       }
