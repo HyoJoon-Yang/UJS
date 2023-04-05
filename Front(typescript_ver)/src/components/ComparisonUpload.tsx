@@ -44,7 +44,7 @@ export default function ComparisonUpload() {
   function startHandler() {
     setStart(true);
     setLoading(true);
-    setTimeout(function(){ setLoading(false);}, 3000);
+    setTimeout(function(){ setLoading(false);}, 5000);
   }
 
   return (
