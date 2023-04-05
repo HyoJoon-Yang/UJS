@@ -38,7 +38,6 @@ export default function ComparisonResult() {
       <p>
         AI가 분석을 끝마쳤습니다. <br /> 결과를 확인해주세요!
       </p>
-
       <Container id="comparison-result-mov">
         <Tabs
         defaultActiveKey="1"
@@ -50,7 +49,7 @@ export default function ComparisonResult() {
             <h6>
               헤드 위치: PASS ✅ <br/>
               팔 간격: PASS ✅ <br/>
-              골반 각도: PASS ✅ <br/>
+              골반 위치: PASS ✅ <br/>
               스탠스: PASS ✅ <br/>
               <hr/>
               <b>100점</b>
@@ -77,19 +76,41 @@ export default function ComparisonResult() {
             </h6>
           </Tab>
           <Tab eventKey="4" title="impact">
-            <img src="img/impact.jpg" alt="impact picture" style={{ width: "100%" }} />
+            <img src="img/impact.png" alt="impact picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: PASS ✅ <br/>
+              골반 위치: PASS ✅ <br/>
+              왼쪽 어깨 위치: PASS ✅ <br/>
+              손 위치: PASS ✅ <br/>
+              <hr/>
+              <b>100점</b>
+            </h6>
           </Tab>
           <Tab eventKey="5" title="follow">
-            <img src="img/follow.jpg" alt="follow picture" style={{ width: "100%" }} />
+            <img src="img/follow.png" alt="follow picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: PASS ✅ <br/>
+              골반 다리: PASS ✅ <br/>
+              오른쪽 다리: PASS ✅ <br/>
+              <hr/>
+              <b>100점</b>
+            </h6>
           </Tab>
           <Tab eventKey="6" title="finish">
-            <img src="img/finish.jpg" alt="finish picture" style={{ width: "100%" }} />
+            <img src="img/finish.png" alt="finish picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: PASS ✅ <br/>
+              어깨 위치: 중심이 덜 이동하였습니다. ❌ <br/>
+              골반 위치: PASS ✅ <br/>
+              <hr/>
+              <b>100점</b>
+            </h6>
           </Tab>
         </Tabs>
       </Container>
 
       <Container id="comparison-result-text">
-        <h4 style={{ marginTop: "30px", marginBottom: "30px" }}>총점 : ?? 점</h4>
+        <h5>총점 : 77.7 점</h5>
         <button className="result-btn">
           <img src="img/download.svg" alt="download btn" /> 결과 저장하기
         </button>
