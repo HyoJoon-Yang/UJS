@@ -21,14 +21,14 @@
 #comparison-result-mov {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
-    width: 600px;
-    margin: 20px auto;
+    margin-left: -55px;
+    width: 450px;
     text-align: center;
     padding: 15px;
 }
 
 #comparison-result-text {
-    width: 600px;
+    width: 300px;
     text-align: center;
     padding-bottom: 10px;
 }
@@ -65,5 +65,6 @@
 
     #comparison-result-mov {
         width: 90vw;
+        margin-left: -20px;
     }
 }
