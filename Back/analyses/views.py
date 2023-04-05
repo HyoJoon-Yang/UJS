@@ -97,11 +97,7 @@ class UserAnalysis(APIView):
                         cv2.circle(img_result, center=(center_x, center_y),
                             radius=radius, color=color, thickness=2)
 
-                cv2.imshow('AI Golf Coach', img_result)
                 out.write(img_result)
-
-                if cv2.waitKey(1) == ord('q'):
-                    break
 
             pose.close()
             cap.release()

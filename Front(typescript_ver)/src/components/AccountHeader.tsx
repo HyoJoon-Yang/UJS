@@ -22,7 +22,7 @@ export default function AccountHeader() {
       <span id="profile-desc">
         <UserAccountModal />
         <h3>
-          <b>{user?.nickname}</b>
+          <b>{user?.nickname ? user?.nickname : "닉네임 설정"}</b>
         </h3>
         <p>
           게시글 0 | <Link to="/user-list">진단목록</Link> 0
