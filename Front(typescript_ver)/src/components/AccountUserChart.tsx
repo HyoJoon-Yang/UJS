@@ -37,7 +37,7 @@ export const options = {
   },
 };
 
-const labels = ['1월', '2월', '3월', '4월', '5월', '6월', '7월'];
+const labels = ['1월', '2월', '3월', '4월'];
 
 // export const data = {
 //   labels,
@@ -64,7 +64,7 @@ export default function AccountUserChart() {
     datasets: [
       {
         label: `${user?.nickname}님의 점수`,
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        data: [45.2, 55.8, 68.3, 77.7],
         borderColor: "#609966",
         backgroundColor: "#9DC08B",
       },
