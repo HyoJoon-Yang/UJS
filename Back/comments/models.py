@@ -10,13 +10,7 @@ class Comment(models.Model):
         related_name="comments",
         on_delete=models.DO_NOTHING,
     )
-    post = models.ForeignKey(
-        "commu.Post",
-        related_name="comments",
-        blank=True,
-        null=True,
-        on_delete=models.CASCADE,
-    )
+    post = models.TextField()
     contents = models.TextField()
 
     def __str__(self) -> str:

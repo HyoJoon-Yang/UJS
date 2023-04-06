@@ -31,48 +31,86 @@ export default function ComparisonResult() {
       </Popover>
     );
 
-  const [ isOn, setIsOn ] = useState(true);
+  // const [ isOn, setIsOn ] = useState(true);
   return (
     <Container fluid id="comparison-result-container">
       <h3>분석 결과</h3>
       <p>
         AI가 분석을 끝마쳤습니다. <br /> 결과를 확인해주세요!
       </p>
-      <h6>자세 일치율: ??.?%</h6>
-
       <Container id="comparison-result-mov">
         <Tabs
         defaultActiveKey="1"
         id="uncontrolled-tab-example"
         className="mb-3"
         >
-          <Tab eventKey="1" title="1">
-            1번 동작입니다.
+          <Tab eventKey="1" title="adress">
+            <img src="img/adress.png" alt="adress picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: PASS ✅ <br/>
+              팔 간격: PASS ✅ <br/>
+              골반 위치: PASS ✅ <br/>
+              스탠스: PASS ✅ <br/>
+              <hr/>
+              <b>100점</b>
+            </h6>
           </Tab>
-          <Tab eventKey="2" title="2">
-            2번 동작입니다.
+          <Tab eventKey="2" title="backswing">
+            <img src="img/backswing.png" alt="backswing picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: 왼쪽으로 중심이 기울어졌습니다. ❌ <br/>
+              팔 간격: 팔을 좀 더 펴주세요. ❌ <br/>
+              골반 각도: PASS ✅ <br/>
+              <hr/>
+              <b>33점</b>
+            </h6>
           </Tab>
-          <Tab eventKey="3" title="3">
-            3번 동작입니다.
+          <Tab eventKey="3" title="backswingtop">
+            <img src="img/backswingtop.png"alt="backswingtop picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: 왼쪽으로 중심이 기울어졌습니다. ❌ <br/>
+              팔 간격: 왼쪽으로 쏠렸습니다. ❌ <br/>
+              골반 각도: PASS ✅ <br/>
+              <hr/>
+              <b>33점</b>
+            </h6>
           </Tab>
-          <Tab eventKey="4" title="4">
-            4번 동작입니다.
+          <Tab eventKey="4" title="impact">
+            <img src="img/impact.png" alt="impact picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: PASS ✅ <br/>
+              골반 위치: PASS ✅ <br/>
+              왼쪽 어깨 위치: PASS ✅ <br/>
+              손 위치: PASS ✅ <br/>
+              <hr/>
+              <b>100점</b>
+            </h6>
           </Tab>
-          <Tab eventKey="5" title="5">
-            5번 동작입니다.
+          <Tab eventKey="5" title="follow">
+            <img src="img/follow.png" alt="follow picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: PASS ✅ <br/>
+              골반 다리: PASS ✅ <br/>
+              오른쪽 다리: PASS ✅ <br/>
+              <hr/>
+              <b>100점</b>
+            </h6>
           </Tab>
-          <Tab eventKey="6" title="6">
-            6번 동작입니다.
+          <Tab eventKey="6" title="finish">
+            <img src="img/finish.png" alt="finish picture" style={{ width: "100%" }} />
+            <h6>
+              헤드 위치: PASS ✅ <br/>
+              어깨 위치: 중심이 덜 이동하였습니다. ❌ <br/>
+              골반 위치: PASS ✅ <br/>
+              <hr/>
+              <b>100점</b>
+            </h6>
           </Tab>
         </Tabs>
       </Container>
 
       <Container id="comparison-result-text">
-        <button id="result-onoff-btn" onClick={() => setIsOn(!isOn)}>
-          {isOn ? "분석 결과 숨기기" : "분석 결과 보이기"}
-        </button>
-        {isOn && <span>이 부분에 분석 결과 텍스트가 출력됩니다.</span>}
-        <br />
+        <h5>총점 : 77.7 점</h5>
         <button className="result-btn">
           <img src="img/download.svg" alt="download btn" /> 결과 저장하기
         </button>

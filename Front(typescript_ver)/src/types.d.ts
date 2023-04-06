@@ -1,7 +1,8 @@
  export interface Owner {
-    pk: number;
-    name: string;
-    avatar: string;
+    avator: any,
+    name: string,
+    nickname: string,
+    email: string
   }
   
   export interface PostList {
@@ -35,6 +36,6 @@
   }
   export interface Comment {
     owner: Owner;
-    post: Post;
+    post: string;
     contents: string;
  } 

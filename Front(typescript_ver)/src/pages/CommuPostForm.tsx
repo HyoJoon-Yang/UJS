@@ -21,7 +21,7 @@ interface IForm {
   title: string;
   content: string;
   owner:Owner;
-  image:string;
+  image:any;
 }
 
 
@@ -43,7 +43,16 @@ function CommuPostForm() {
       console.log("mutation has an error");
     },
   });
+
   const onSubmit = ({kind,title,content,owner,image }: IForm) => {
+    console.log(image[0])
+    // console.log(kind,title,content,owner,image)
+    // console.log(image)
+    // if (image != undefined || image != null){
+    //   image=image[0]
+    // }
+    // console.log(image)
+    image = image[0]
     mutation.mutate({kind, title,content,owner,image});
   };
 
@@ -94,8 +103,11 @@ function CommuPostForm() {
           </Form.Group>
           <Form.Group controlId="formFile" className="mb-3">
             <Form.Label>파일 업로드</Form.Label>
-            <Form.Control type="file" 
-            {...register("image", { required: false })}/>
+            <Form.Control
+            {...register("image")}
+            type="file"
+            style={{ display: "block" }}
+            />
           </Form.Group>
           <Button
             style={{ backgroundColor: "#9DC08B", border: "none" }}

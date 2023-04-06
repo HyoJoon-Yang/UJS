@@ -10,6 +10,7 @@
 
 #comparison-result-container p {
     margin-top: 20px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
@@ -21,14 +22,18 @@
 #comparison-result-mov {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
-    width: 350px;
-    height: 550px;
-    margin: 20px auto;
+    margin-left: -55px;
+    width: 450px;
     text-align: center;
+    padding: 15px;
+}
+
+#comparison-result-mov .tab-content h6 {
+    line-height: 25px;
 }
 
 #comparison-result-text {
-    width: 600px;
+    width: 300px;
     text-align: center;
     padding-bottom: 10px;
 }
@@ -42,8 +47,13 @@
     margin: 10px;
 }
 
+#comparison-result-text h5 {
+    margin-top: 30px; 
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
 #comparison-result-text span {
-    border: 1px solid green;
     display: block;
     min-height: 200px;
     margin-bottom: 10px;
@@ -62,5 +72,14 @@
 @media (max-width: 649px) {
     #comparison-result-text {
         width: 350px;
+    }
+
+    #comparison-result-mov {
+        width: 90vw;
+        margin-left: -20px;
+    }
+
+    #comparison-result-text h5 {
+        margin-left: -20px;
     }
 }
