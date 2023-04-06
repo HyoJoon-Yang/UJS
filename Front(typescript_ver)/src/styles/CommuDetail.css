@@ -1,6 +1,12 @@
 #commu-detail-btn-group {
-    width: 330px;
+    width: 100%;
     height: 70px;
+}
+
+#btn-div {
+    width: 185px;
+    height: 100%;
+    margin: 0 auto;
 }
 
 .commu-detail-btn {
