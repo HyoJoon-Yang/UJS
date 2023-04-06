@@ -24,3 +24,19 @@
 #footer_copyright {
     font-size: 10px;
 }
+
+/* 모바일 */
+@media (max-width: 649px) {
+    #footer_UJS_logo {
+        float: right;
+        margin-top: -20px;
+    }
+
+    .footer_icon {
+        margin-right: 15px;
+    }
+
+    #footer_copyright {
+        margin-top: 20px;
+    }
+}
