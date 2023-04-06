@@ -10,6 +10,7 @@
 
 #comparison-result-container p {
     margin-top: 20px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
@@ -27,6 +28,10 @@
     padding: 15px;
 }
 
+#comparison-result-mov .tab-content h6 {
+    line-height: 25px;
+}
+
 #comparison-result-text {
     width: 300px;
     text-align: center;
@@ -40,6 +45,12 @@
     font-weight: bold;
     width: 150px;
     margin: 10px;
+}
+
+#comparison-result-text h5 {
+    margin-top: 30px; 
+    margin-bottom: 30px;
+    font-weight: bold;
 }
 
 #comparison-result-text span {
@@ -65,6 +76,10 @@
 
     #comparison-result-mov {
         width: 90vw;
+        margin-left: -20px;
+    }
+
+    #comparison-result-text h5 {
         margin-left: -20px;
     }
 }
