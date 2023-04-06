@@ -85,21 +85,23 @@ const CommuDetail = () => {
               style={{ height: "550px", fontWeight: "500", fontSize: "20px" }}
             >
               {postData?.image != null ? (<img src={`http://localhost:8000${postData?.image}`}/>
-              ) :<img src={`http://localhost:8000/uploads/post/2023/04/02/golf.jpg`}/>  }
+              ) :<img style={{width: "100%"}} src={`http://localhost:8000/uploads/post/2023/04/02/golf.jpg`}/>  }
                 
             </Container>
             <hr />
             <Container id="commu-detail-btn-group">
-              <button
-                className="commu-detail-btn"
-                onClick={() => {
-                  navigate(-1);
-                }}
-              >
-                목록으로
-              </button>
-              {/* <button className="commu-detail-btn">수정하기</button> */}
-              <PostRemoveModal />
+              <div id="btn-div">
+                <button
+                  className="commu-detail-btn"
+                  onClick={() => {
+                    navigate(-1);
+                  }}
+                >
+                  목록으로
+                </button>
+                {/* <button className="commu-detail-btn">수정하기</button> */}
+                <PostRemoveModal />
+              </div>
             </Container>
           </Container>
        
