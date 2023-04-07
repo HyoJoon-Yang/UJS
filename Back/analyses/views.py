@@ -201,6 +201,12 @@ class UserAnalysis(APIView):
             pose.close()
             cap.release()
             out.release()
+
+            serializer = UserAnalysisSerializer(data=request.data)
+            if serializer.is_valid():
+                video = serializer.save(
+                user=request.user
+            )
             
             return Response(UserAnalysisSerializer(video).data)
         else:
